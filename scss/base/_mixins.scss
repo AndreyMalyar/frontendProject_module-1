@@ -1,0 +1,81 @@
+@mixin flex($jc: center, $ai: center){
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+}
+@mixin inline-flex($jc: center, $ai: center){
+  display: inline-flex;
+  justify-content: $jc;
+  align-items: $ai;
+}
+@mixin bg($url: '', $repeat: no-repeat, $x: center, $y: center, $size: cover){
+  background-image: url('#{$url}');
+  background-repeat: $repeat;
+  background-position: $x $y;
+  background-size: $size;
+}
+@mixin bgProps($repeat: no-repeat, $x: center, $y: center, $size: cover){
+  background-repeat: $repeat;
+  background-position: $x $y;
+  background-size: $size;
+}
+@mixin _1399($name, $value){
+  @media (max-width: $desktop-size){
+    #{$name}: $value;
+  }
+}
+@mixin _1199($name, $value){
+  @media (max-width: $laptop-size){
+    #{$name}: $value;
+  }
+}
+@mixin _991($name, $value){
+  @media (max-width: $label-size){
+    #{$name}: $value;
+  }
+}
+@mixin _767($name, $value){
+  @media (max-width: $medium-size){
+    #{$name}: $value;
+  }
+}
+@mixin _575($name, $value){
+  @media (max-width: $mobile-size){
+    #{$name}: $value;
+  }
+}
+@mixin _1399-block{
+  @media (max-width: $desktop-size){
+    @content;
+  }
+}
+@mixin _1199-block{
+  @media (max-width: $laptop-size){
+    @content;
+  }
+}
+@mixin _991-block{
+  @media (max-width: $label-size){
+    @content;
+  }
+}
+@mixin _767-block{
+  @media (max-width: $medium-size){
+    @content;
+  }
+}
+@mixin _575-block{
+  @media (max-width: $mobile-size){
+    @content;
+  }
+}
+@mixin mediaMax($size){
+  @media (max-width: $size){
+    @content;
+  }
+}
+@mixin mediaMin($size){
+  @media (min-width: $size){
+    @content;
+  }
+}

@@ -1,6 +1,38 @@
-body {
-  background-color: #000;
-  padding: 0;
+:root {
+  --container-width: 1200px;
+  --container-padding: 15px;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* base style globs */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", serif;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 400;
+  background-color: #fff;
+}
+
+.container {
+  padding: 0 var(--container-padding);
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+/* globs */
 
 /*# sourceMappingURL=style.css.map */

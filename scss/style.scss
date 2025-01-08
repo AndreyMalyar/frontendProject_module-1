@@ -1,4 +1,12 @@
-body{
-  background-color: #000;
-  padding: 0;
+:root{
+  --container-width: 1200px;
+  --container-padding: 15px;
 }
+//base
+@import "base/vars";
+@import "base/reset";
+@import "base/base";
+@import "base/mixins";
+@import "base/containers";
+
+/* globs */
