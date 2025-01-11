@@ -64,3 +64,54 @@
     color: $secondary-color;
   }
 }
+
+/* ---------- section adt ---------- */
+.section-adt{
+  &__box{
+    @include flex(center, stretch);
+    gap: 20px;
+  }
+  &__item{
+    width: 50%;
+    background-color: lightblue;
+  }
+}
+
+/* ---------- section content ---------- */
+.section{
+  &-content{
+    &__box{
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      grid-template-areas:
+      "popularDistance popularDistance topTen"
+      "hotSales hotSales frequentQuestions"
+      "hotSales hotSales bestOffers";
+    }
+    &__item{
+      height: fit-content;
+    }
+  }
+}
+.popularDistance{
+  grid-area: popularDistance;
+  background: bisque;
+}
+.topTen{
+  grid-area: topTen;
+  background: bisque;
+}
+.hotSales{
+  grid-area: hotSales;
+  background: bisque;
+}
+.frequentQuestions{
+  grid-area: frequentQuestions;
+  background: bisque;
+}
+.bestOffers{
+  grid-area: bestOffers;
+  background: bisque;
+}
