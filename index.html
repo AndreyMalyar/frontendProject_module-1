@@ -12,23 +12,59 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+<svg style="display: none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="globe" viewBox="0 0 512 512">
+    <path d="M352 256c0 22.2-1.2 43.6-3.3 64l-185.3 0c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64l185.3 0c2.2 20.4 3.3 41.8 3.3 64zm28.8-64l123.1 0c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64l-123.1 0c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32l-116.7 0c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0l-176.6 0c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.6 26 20.9 58.2 27 94.7zm-209 0L18.6 160C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192l123.1 0c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64L8.1 320C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6l176.6 0c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352l116.7 0zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6l116.7 0z"/>
+  </symbol>
+  <symbol id="route" viewBox="0 0 512 512">
+    <path d="M512 96c0 50.2-59.1 125.1-84.6 155c-3.8 4.4-9.4 6.1-14.5 5L320 256c-17.7 0-32 14.3-32 32s14.3 32 32 32l96 0c53 0 96 43 96 96s-43 96-96 96l-276.4 0c8.7-9.9 19.3-22.6 30-36.8c6.3-8.4 12.8-17.6 19-27.2L416 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0c-53 0-96-43-96-96s43-96 96-96l39.8 0c-21-31.5-39.8-67.7-39.8-96c0-53 43-96 96-96s96 43 96 96zM117.1 489.1c-3.8 4.3-7.2 8.1-10.1 11.3l-1.8 2-.2-.2c-6 4.6-14.6 4-20-1.8C59.8 473 0 402.5 0 352c0-53 43-96 96-96s96 43 96 96c0 30-21.1 67-43.5 97.9c-10.7 14.7-21.7 28-30.8 38.5l-.6 .7zM128 352a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM416 128a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/>
+  </symbol>
+</svg>
+
 <header class="header">
   <div class="container">
-    <nav class="header-nav">
-      <ul class="header-nav__menu">
-        <li class="header-nav__menu-item">Корпоративным клиентам</li>
-        <li class="header-nav__menu-item">Авиабилеты</li>
-        <li class="header-nav__menu-item">Справка</li>
-        <li class="header-nav__menu-item">Русский</li>
+    <nav class="nav">
+      <ul class="nav-menu">
+        <li class="nav-menu__item"><a href="#!" class="nav-menu__link">Корпоративным клиентам</a></li>
+        <li class="nav-menu__select">
+          <ul class="nav-menu__select-header">
+            <li class="nav-menu__select-header-current">
+              Авиабилеты
+              <span class="nav-menu__select-arrow">&#10148;</span>
+          </ul>
+          <ul class="nav-menu__select-body">
+            <li class="nav-menu__select-item">Авиабилеты</li>
+            <li class="nav-menu__select-item">Ж/д билеты</li>
+            <li class="nav-menu__select-item">Автобусы</li>
+            <li class="nav-menu__select-item">Отели</li>
+            <li class="nav-menu__select-item">Страхование</li>
+          </ul>
+        </li>
+        <li class="nav-menu__item"><a href="#!" class="nav-menu__link">Справка</a></li>
+        <li class="nav-menu__select">
+          <ul class="nav-menu__select-header">
+            <li class="nav-menu__select-header-current">
+              <svg class="icon__globe">
+                <use xlink:href="#globe"></use>
+              </svg>
+              Русский
+              <span class="nav-menu__select-arrow">&#10148;</span>
+            </li>
+          </ul>
+          <ul class="nav-menu__select-body">
+            <li class="nav-menu__select-item" value="русский">Русский</li>
+            <li class="nav-menu__select-item" value="английский">Английский</li>
+          </ul>
+        </li>
       </ul>
     </nav>
     <div class="header__content">
       <h1 class="header__title">Лучшие авиабилеты по самым низким ценам</h1>
       <div class="header__button-list">
-        <button type="button" class="header__button-item">Авиабилеты</button>
+        <button type="button" class="header__button-item header__button-item_active">Авиабилеты</button>
         <button type="button" class="header__button-item">Ж/д билеты</button>
         <button type="button" class="header__button-item">Автобусы</button>
-        <button type="button" class="header__button-item">Отели</button>
+        <button type="button" class="header__button-item header__button-item_sales">Отели <span class="header__button-sales">-60%</span> </button>
         <button type="button" class="header__button-item">Страхование</button>
       </div>
       <div class="header__row">
@@ -37,7 +73,12 @@
         </div>
         <button type="button" class="header__btn">Найти</button>
       </div>
-      <a href="#!" class="header__link">Сложный маршрут</a>
+      <a href="#!" class="header__link">
+        <svg class="icon__route">
+          <use xlink:href="#route"></use>
+        </svg>
+        Сложный маршрут
+      </a>
     </div>
   </div>
 </header>
