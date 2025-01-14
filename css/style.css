@@ -34,6 +34,12 @@ body {
 }
 
 /* globs */
+.main {
+  background-color: rgb(239, 241, 244);
+  padding: 20px 0 80px;
+}
+
+/* layout */
 .nav {
   display: flex;
   justify-content: right;
@@ -134,6 +140,7 @@ body {
   color: #fff;
   font-weight: 600;
   transition: 0.2s ease-in-out;
+  cursor: pointer;
 }
 .header__button-item_active {
   background-color: #fff;
@@ -188,10 +195,83 @@ body {
 }
 .section-adt__item {
   width: 50%;
-  background-color: lightblue;
+  background-color: #fff;
+  padding: 25px 20px 20px;
+  border-radius: 10px;
+  box-shadow: 12px 4px 34px -10px rgba(0, 0, 0, 0.36);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
 }
 
+.controlTelegram__list {
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.controlTelegram__text {
+  font-size: 0.9rem;
+  margin-right: 10px;
+}
+.controlTelegram__text::before {
+  content: url("../img/svg/check.svg");
+  display: inline-block;
+  width: 12px;
+  height: 100%;
+  margin-right: 3px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.controlTelegram-btn {
+  margin-top: 5px;
+  padding: 15px 25px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  background-color: #fbdada;
+  color: #FF4D4D;
+  cursor: pointer;
+}
+
+.busTickets__list {
+  width: 380px;
+  display: flex;
+}
+.busTickets__text {
+  font-size: 0.9rem;
+  margin-right: 10px;
+}
+.busTickets__text::before {
+  content: url("../img/svg/check.svg");
+  display: inline-block;
+  width: 12px;
+  height: 100%;
+  margin-right: 3px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.busTickets-btn {
+  margin-top: 5px;
+  padding: 15px 25px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  background-color: #FF4D4D;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ---------- end section adt ---------- */
 /* ---------- section content ---------- */
+.section-content {
+  margin-top: 30px;
+}
 .section-content__box {
   width: 100%;
   display: grid;
@@ -199,13 +279,21 @@ body {
   gap: 20px;
   grid-template-areas: "popularDistance popularDistance topTen" "hotSales hotSales frequentQuestions" "hotSales hotSales bestOffers";
 }
+.section-content__title {
+  margin-bottom: 10px;
+}
 .section-content__item {
   height: fit-content;
+}
+.section-content__item-wrap {
+  background-color: #fff;
+  padding: 15px 20px;
+  box-shadow: 12px 4px 34px -10px rgba(0, 0, 0, 0.36);
+  border-radius: 15px;
 }
 
 .popularDistance {
   grid-area: popularDistance;
-  background: bisque;
 }
 
 .topTen {
@@ -215,12 +303,26 @@ body {
 
 .hotSales {
   grid-area: hotSales;
-  background: bisque;
+}
+.hotSales__subtitle {
+  margin-bottom: 5px;
+}
+.hotSales__subtitle:not(:first-child) {
+  margin-top: 15px;
+}
+.hotSales__text {
+  font-size: 0.9rem;
+  color: #939393;
 }
 
 .frequentQuestions {
   grid-area: frequentQuestions;
-  background: bisque;
+}
+.frequentQuestions__item {
+  list-style: none;
+}
+.frequentQuestions__item:not(:first-child) {
+  margin-top: 15px;
 }
 
 .bestOffers {

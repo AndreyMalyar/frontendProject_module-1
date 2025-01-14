@@ -11,6 +11,12 @@
 
 /* globs */
 
+.main{
+  background-color: rgb(239, 241, 244);
+  padding: 20px 0 80px;
+}
+
+/* layout */
 .nav{
   display: flex;
   justify-content: right;
@@ -111,6 +117,7 @@
     color: $secondary-color;
     font-weight: 600;
     transition: .2s ease-in-out;
+    cursor: pointer;
     &_active{
       background-color: $secondary-color;
       color: #000;
@@ -163,13 +170,87 @@
   }
   &__item{
     width: 50%;
-    background-color: lightblue;
+    background-color: $secondary-color;
+    padding: 25px 20px 20px;
+    border-radius: 10px;
+    box-shadow: 12px 4px 34px -10px rgba(0,0,0,0.36);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
   }
 }
+
+.controlTelegram{
+  &__list{
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__text{
+    font-size: 0.9rem;
+    margin-right: 10px;
+    &::before{
+      content: url("../img/svg/check.svg");
+      display: inline-block;
+      width: 12px;
+      height: 100%;
+      margin-right: 3px;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  &-btn{
+    margin-top: 5px;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    background-color: $accented-lightRed-color;
+    color: $accented-red-color;
+    cursor: pointer;
+  }
+}
+.busTickets{
+  &__list{
+    width: 380px;
+    display: flex;
+  }
+  &__text{
+    font-size: 0.9rem;
+    margin-right: 10px;
+    &::before{
+      content: url("../img/svg/check.svg");
+      display: inline-block;
+      width: 12px;
+      height: 100%;
+      margin-right: 3px;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  &-btn{
+    margin-top: 5px;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    background-color: $accented-red-color;
+    color: $secondary-color;
+    cursor: pointer;
+  }
+}
+/* ---------- end section adt ---------- */
 
 /* ---------- section content ---------- */
 .section{
   &-content{
+    margin-top: 30px;
     &__box{
       width: 100%;
       display: grid;
@@ -180,14 +261,22 @@
       "hotSales hotSales frequentQuestions"
       "hotSales hotSales bestOffers";
     }
+    &__title{
+      margin-bottom: 10px;
+    }
     &__item{
       height: fit-content;
+      &-wrap{
+        background-color: #fff;
+        padding: 15px 20px;
+        box-shadow: 12px 4px 34px -10px rgba(0,0,0,0.36);
+        border-radius: 15px;
+      }
     }
   }
 }
 .popularDistance{
   grid-area: popularDistance;
-  background: bisque;
 }
 .topTen{
   grid-area: topTen;
@@ -195,13 +284,29 @@
 }
 .hotSales{
   grid-area: hotSales;
-  background: bisque;
+  &__subtitle{
+    margin-bottom: 5px;
+    &:not(:first-child){
+      margin-top: 15px;
+    }
+  }
+  &__text{
+    font-size: 0.9rem;
+    color: #939393;
+  }
 }
 .frequentQuestions{
   grid-area: frequentQuestions;
-  background: bisque;
+  &__item{
+    list-style: none;
+    &:not(:first-child){
+      margin-top: 15px;
+    }
+  }
 }
 .bestOffers{
   grid-area: bestOffers;
   background: bisque;
 }
+
+
