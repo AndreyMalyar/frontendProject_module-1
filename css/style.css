@@ -44,6 +44,7 @@ body {
   display: flex;
   justify-content: right;
   align-items: flex-start;
+  /* ---------- nav mobile ---------- */
 }
 .nav-menu {
   width: 540px;
@@ -51,12 +52,21 @@ body {
   justify-content: space-between;
   align-items: flex-start;
 }
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+}
 .nav-menu__item {
   list-style: none;
-  color: #fff;
+  text-align: center;
 }
 .nav-menu__link {
   text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+  transition: 0.2s linear;
+}
+.nav-menu__link:hover {
   color: #fff;
 }
 .nav-menu__select {
@@ -74,6 +84,11 @@ body {
   list-style: none;
   cursor: pointer;
   display: flex;
+  color: rgba(255, 255, 255, 0.6);
+  transition: 0.2s linear;
+}
+.nav-menu__select-header-current:hover {
+  color: #fff;
 }
 .nav-menu__select-item {
   list-style: none;
@@ -101,6 +116,52 @@ body {
   transform-origin: center top;
   transition: 0.2s linear;
 }
+.nav-menuMobile {
+  display: none;
+}
+@media (max-width: 768px) {
+  .nav-menuMobile {
+    display: block;
+  }
+}
+.nav-menuMobile__header {
+  width: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-menuMobile__header-item {
+  list-style: none;
+}
+.nav-menuMobile__body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 40px;
+  position: absolute;
+  top: -140px;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  background-color: #6E36F7;
+  transition: 0.3s ease-in-out;
+}
+.nav-menuMobile__body-item {
+  list-style: none;
+}
+.nav-menuMobile__body-item:not(:last-child) {
+  margin-bottom: 10px;
+}
+.nav-menuMobile__body-link {
+  text-decoration: none;
+  color: #fff;
+}
+.nav-menuMobile__body-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
 
 .icon__globe {
   color: transparent;
@@ -114,6 +175,18 @@ body {
   height: 22px;
   fill: #fff;
   margin-right: 8px;
+}
+.icon__burger {
+  color: transparent;
+  fill: #fff;
+  width: 22px;
+  height: 22px;
+}
+.icon__close {
+  color: transparent;
+  fill: #fff;
+  width: 22px;
+  height: 22px;
 }
 
 .header {
@@ -152,6 +225,9 @@ body {
 .header__button-item:hover {
   background-color: #fff;
   color: #000;
+}
+.header__button-item:active {
+  background-color: #805FF6;
 }
 .header__button-sales {
   margin-left: 5px;
