@@ -25,6 +25,9 @@
   <symbol id="route" viewBox="0 0 512 512">
     <path d="M512 96c0 50.2-59.1 125.1-84.6 155c-3.8 4.4-9.4 6.1-14.5 5L320 256c-17.7 0-32 14.3-32 32s14.3 32 32 32l96 0c53 0 96 43 96 96s-43 96-96 96l-276.4 0c8.7-9.9 19.3-22.6 30-36.8c6.3-8.4 12.8-17.6 19-27.2L416 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0c-53 0-96-43-96-96s43-96 96-96l39.8 0c-21-31.5-39.8-67.7-39.8-96c0-53 43-96 96-96s96 43 96 96zM117.1 489.1c-3.8 4.3-7.2 8.1-10.1 11.3l-1.8 2-.2-.2c-6 4.6-14.6 4-20-1.8C59.8 473 0 402.5 0 352c0-53 43-96 96-96s96 43 96 96c0 30-21.1 67-43.5 97.9c-10.7 14.7-21.7 28-30.8 38.5l-.6 .7zM128 352a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM416 128a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/>
   </symbol>
+  <symbol id="angleRight" viewBox="0 0 320 512">
+    <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/>
+  </symbol>
 </svg>
 
 <header class="header">
@@ -203,9 +206,23 @@
 <footer class="footer">
   <div class="container">
 
+    <div class="footer-logo__list">
+      <img class="footer-logo__item" src="./img/iata-logo.png" alt="logo iata">
+      <img class="footer-logo__item" src="./img/pci-logo.png" alt="logo pci">
+      <img class="footer-logo__item" src="./img/visa-logo.png" alt="logo visa">
+      <img class="footer-logo__item" src="./img/mastercard-logo.png" alt="logo mastercard">
+    </div>
+
     <div class="accordion">
       <div class="accordion__item">
-        <button class="accordion__item-btn">Страны<span class="accordion__item-icon"></span></button>
+        <button class="accordion__item-btn">
+          Страны
+          <span class="accordion__item-icon">
+            <svg class="icon__angleRight">
+                <use xlink:href="#angleRight"></use>
+              </svg>
+          </span>
+        </button>
         <div class="accordion__body">
           <ul class="accordion__body-list">
             <li class="accordion__body-item">Испания</li>
@@ -216,10 +233,17 @@
             <li class="accordion__body-item">Франция</li>
           </ul>
         </div>
-        <a href="#!" class="accordion__body-link">Все страны</a>
+        <a href="#!" class="accordion__body-link">Все страны<span class="accordion__body-link_arrow">&rarr;</span></a>
       </div>
       <div class="accordion__item">
-        <button class="accordion__item-btn">Города<span class="accordion__item-icon"></span></button>
+        <button class="accordion__item-btn">
+          Города
+          <span class="accordion__item-icon">
+            <svg class="icon__angleRight">
+                <use xlink:href="#angleRight"></use>
+              </svg>
+          </span>
+        </button>
         <div class="accordion__body">
           <ul class="accordion__body-list">
             <li class="accordion__body-item">Кишинев</li>
@@ -230,10 +254,17 @@
             <li class="accordion__body-item">Франкфурт</li>
           </ul>
         </div>
-        <a href="#!" class="accordion__body-link">Все города</a>
+        <a href="#!" class="accordion__body-link">Все города<span class="accordion__body-link_arrow">&rarr;</span></a>
       </div>
       <div class="accordion__item">
-        <button class="accordion__item-btn">Направление<span class="accordion__item-icon"></span></button>
+        <button class="accordion__item-btn">
+          Направление
+          <span class="accordion__item-icon">
+            <svg class="icon__angleRight">
+                <use xlink:href="#angleRight"></use>
+              </svg>
+          </span>
+        </button>
         <div class="accordion__body">
           <ul class="accordion__body-list">
             <li class="accordion__body-item">Кишинев-Стамбул</li>
@@ -244,10 +275,17 @@
             <li class="accordion__body-item">Варшава-Стамбул</li>
           </ul>
         </div>
-        <a href="#!" class="accordion__body-link">Все направления</a>
+        <a href="#!" class="accordion__body-link">Все направления<span class="accordion__body-link_arrow">&rarr;</span></a>
       </div>
       <div class="accordion__item">
-        <button class="accordion__item-btn">Аэропорты<span class="accordion__item-icon"></span></button>
+        <button class="accordion__item-btn">
+          Аэропорты
+          <span class="accordion__item-icon">
+            <svg class="icon__angleRight">
+                <use xlink:href="#angleRight"></use>
+              </svg>
+          </span>
+        </button>
         <div class="accordion__body">
           <ul class="accordion__body-list">
             <li class="accordion__body-item">Ф.Шопен(Варшава)</li>
@@ -258,10 +296,17 @@
             <li class="accordion__body-item">Шарль-Де-Голль (Париж)</li>
           </ul>
         </div>
-        <a href="#!" class="accordion__body-link">Все аэропорты</a>
+        <a href="#!" class="accordion__body-link">Все аэропорты<span>&rarr;</span></a>
       </div>
       <div class="accordion__item">
-        <button class="accordion__item-btn">Авиакомпании<span class="accordion__item-icon"></span></button>
+        <button class="accordion__item-btn">
+          Авиакомпании
+          <span class="accordion__item-icon">
+            <svg class="icon__angleRight">
+                <use xlink:href="#angleRight"></use>
+              </svg>
+          </span>
+        </button>
         <div class="accordion__body">
           <ul class="accordion__body-list">
             <li class="accordion__body-item">Тюркиш-Эрлайз</li>
@@ -271,10 +316,17 @@
             <li class="accordion__body-item">Air Baltic</li>
           </ul>
         </div>
-        <a href="#!" class="accordion__body-link">Все авиакомпании</a>
+        <a href="#!" class="accordion__body-link">Все авиакомпании<span class="accordion__body-link_arrow">&rarr;</span></a>
       </div>
       <div class="accordion__item">
-        <button class="accordion__item-btn">Наши сервисы<span class="accordion__item-icon"></span></button>
+        <button class="accordion__item-btn">
+          Наши сервисы
+          <span class="accordion__item-icon">
+            <svg class="icon__angleRight">
+                <use xlink:href="#angleRight"></use>
+              </svg>
+          </span>
+        </button>
         <div class="accordion__body">
           <ul class="accordion__body-list">
             <li class="accordion__body-item">Рейтинг авиакомпаний</li>
@@ -283,7 +335,20 @@
             <li class="accordion__body-item">Акция</li>
           </ul>
         </div>
-        <a href="#!" class="accordion__body-link">Карта сайта</a>
+        <a href="#!" class="accordion__body-link">Карта сайта<span class="accordion__body-link_arrow">&rarr;</span></a>
+      </div>
+    </div>
+
+    <div class="footer-link__list">
+      <div class="footer-link__item">
+        <a href="№!" class="footer-link__item">Партнерская программа</a>
+        <a href="№!" class="footer-link__item"><img class="footer-link__img" src="img/play-store-badge.png" alt="link google play"></a>
+        <a href="№!" class="footer-link__item"><img class="footer-link__img" src="img/Store.png" alt="link app store"></a>
+      </div>
+      <div class="footer-link__item">
+        <a href="#!" class="footer-link__facebook"><img class="footer-link__icon" src="img/svg/facebook.svg"></a>
+        <a href="#!" class="footer-link__instagram"><img class="footer-link__icon" src="img/svg/instagram.svg"></a>
+        <a href="#!" class="footer-link__telegram"><img class="footer-link__icon" src="img/svg/telegram.svg"></a>
       </div>
     </div>
 
