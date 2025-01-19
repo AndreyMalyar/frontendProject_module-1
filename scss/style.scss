@@ -213,28 +213,118 @@
     background-color: green;
     color: $secondary-color;
   }
-  &__row{
+  &-order__wrap{
     width: 100%;
     height: 80px;
     margin: 15px 0 20px;
     @include flex();
     gap: 10px;
   }
-  &__order{
-    width: 90%;
-    height: 100%;
-    background-color: $secondary-color;
-  }
-  &__btn{
+  &-order__btn{
     width: 10%;
     height: 100%;
     display: block;
     background-color: $accented-red-color;
   }
   &__link{
-    display: block;
+    display: inline-block;
     text-decoration: none;
     color: $secondary-color;
+  }
+}
+
+/* ---------- wrap order ---------- */
+.airTickets{
+  width: 90%;
+  height: 100%;
+  background-color: $secondary-color;
+  @include flex(center, flex-end);
+  &-inputBox{
+    width: 40%;
+    height: 90%;
+    border-right: 1px solid #000;
+    @include flex();
+    &__inner{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border: none;
+      outline: none;
+      position: relative;
+      &:after{
+        content: '';
+        width: 2px;
+        height: 80px;
+        background-color: red;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        transform: translateX(+50%);
+      }
+    }
+    &__input{
+      width: 100%;
+      display: block;
+      padding: 6px 10px 6px 20px;
+      font-size: 1.1rem;
+      border: none;
+      outline: none;
+      background: transparent;
+
+      &-label{
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: rgb(167,162,167);
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+        transition: 0.3s ease-in-out;
+      }
+      &:valid ~ &-label,
+      &:focus ~ &-label{
+        font-size: 0.9rem;
+        transform: translate(0px, -35px);
+      }
+    }
+  }
+  &-calendarBox{
+    width: 35%;
+    @include flex();
+    &__icon{
+      width: 30px;
+    }
+  }
+  &-seaterBox{
+    width: 25%;
+    height: 90%;
+    padding-left: 20px;
+    background-color: blanchedalmond;
+    border-left: 1px solid #000;
+    @include flex(flex-start);
+    cursor: pointer;
+    position: relative;
+    &__label{
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: rgb(167,162,167);
+      user-select: none;
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      transition: 0.3s ease;
+      &_active{
+        font-size: 0.9rem;
+        transform: translate(0px, -35px);
+      }
+    }
+    &__out{
+      font-size: 1.1rem;
+    }
   }
 }
 
@@ -395,10 +485,105 @@
       margin-top: 15px;
     }
   }
+  &__link{
+    text-decoration: none;
+    color: $link-blue-color;
+  }
 }
 .bestOffers{
   grid-area: bestOffers;
   background: bisque;
+}
+
+
+/* ---------- footer ---------- */
+.footer{
+  padding: 20px 0 30px;
+  background: $secondary-color;
+  border-bottom: 5px solid #000;
+  &-logo__list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  &-logo__item{
+    max-height: 50px;
+    @include _767-block{
+      max-height: 40px;
+    }
+    @include _575-block{
+      max-height: 25px;
+    }
+  }
+
+  &-link__list{
+    margin: 40px 0;
+    padding-top: 40px;
+    border-top: 1px solid #000;
+    @include flex(space-between, center);
+    gap: 10px;
+    @include _767-block{
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+  &-link__program{
+    display: flex;
+    @include _767-block{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    &-link{
+      display: block;
+      text-decoration: none;
+      width: 210px;
+      height: 40px;
+      margin-right: 20px;
+      font-size: 0.9rem;
+      border: 2px solid $link-blue-color;
+      color: $link-blue-color;
+      @include flex();
+      transition: 0.3s ease-in-out;
+      &:hover{
+        font-size: 1rem;
+      }
+      @include _767-block{
+        flex-direction: column;
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+    }
+  }
+  &-link__inner{
+    height: 40px;
+    width: 285px;
+    @include flex(space-between, center);
+  }
+  &-link__img{
+    height: 40px;
+  }
+  &-link__socials{
+    width: 140px;
+    height: 40px;
+    @include flex(space-between, center);
+    &-item{
+      display: block;
+    }
+    &-icon{
+      display: block;
+      width: 40px;
+      height: 40px;
+      padding: 8px;
+      background-color: rgb(167,162,167);
+      border-radius: 50%;
+      &-telegram{
+        padding: 0;
+        background-color: transparent;
+      }
+    }
+  }
 }
 
 
@@ -478,6 +663,7 @@
       display: block;
       text-decoration: none;
       margin-top: auto;
+      color: $link-blue-color;
       @include _767-block{
         margin-top: 10px;
         display: none;
@@ -493,42 +679,4 @@
   }
 }
 /* ---------- END accordion ---------- */
-
-/* ---------- footer ---------- */
-.footer{
-  padding: 20px 0 30px;
-  background: $secondary-color;
-  &-logo__list{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-  }
-  &-logo__item{
-    max-height: 50px;
-    @include _767-block{
-      max-height: 40px;
-    }
-    @include _575-block{
-      max-height: 25px;
-    }
-  }
-  &-link__list{
-    margin: 40px 0;
-    padding-top: 40px;
-    border-top: 1px solid $accented-red-color;
-    @include flex(space-between, center);
-  }
-  &-link__img{
-    height: 50px;
-  }
-  &-link__icon{
-    display: block;
-    width: 50px;
-    height: 50px;
-    padding: 5px;
-    background: red;
-    border-radius: 50%;
-  }
-}
 /* ---------- end footer ---------- */

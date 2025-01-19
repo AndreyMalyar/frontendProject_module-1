@@ -103,11 +103,35 @@
         <button type="button" class="header__button-item header__button-item_sales" data-name="hotels" data-label="Отели">Отели <span class="header__button-sales">-60%</span> </button>
         <button type="button" class="header__button-item" data-name="insurance" data-label="Страхование">Страхование</button>
       </div>
-      <div class="header__row">
-        <div class="header__order">
-
+      <div class="header-order__wrap">
+        <div class="airTickets">
+          <form class="airTickets-inputBox">
+            <fieldset class="airTickets-inputBox__inner">
+              <input type="text" id="ticketTo" name="ticketTo" class="airTickets-inputBox__input" required>
+              <label for="ticketTo" class="airTickets-inputBox__input-label">Откуда</label>
+            </fieldset>
+            <fieldset class="airTickets-inputBox__inner">
+              <input type="text" id="ticketFrom" name="ticketFrom" class="airTickets-inputBox__input" required>
+              <label for="ticketFrom" class="airTickets-inputBox__input-label">Куда</label>
+            </fieldset>
+          </form>
+          <div class="airTickets-calendarBox">
+            <div class="airTickets-calendarBox__dataTo">
+              <p class="airTickets-calendarBox__dataTo-label">Туда</p>
+              <p class="airTickets-calendarBox__dataTo-out"></p>
+            </div>
+            <div class="airTickets-calendarBox__dataFrom">
+              <p class="airTickets-calendarBox__dataFrom-label">Обратно</p>
+              <p class="airTickets-calendarBox__dataFrom-out"></p>
+            </div>
+            <img src="./img/svg/calendarDays.svg" class="airTickets-calendarBox__icon" alt="icon calendar">
+          </div>
+          <div class="airTickets-seaterBox">
+            <p class="airTickets-seaterBox__label">Пассажиры, класс</p>
+            <p class="airTickets-seaterBox__out"></p>
+          </div>
         </div>
-        <button type="button" class="header__btn">Найти</button>
+        <button type="button" class="header-order__btn">Найти</button>
       </div>
       <a href="#!" class="header__link">
         <svg class="icon__route">
@@ -181,12 +205,12 @@
         <div class="section-content__item frequentQuestions">
           <h3 class="section-content__title frequentQuestions__title">Частые вопросы</h3>
           <ul class="section-content__item-wrap frequentQuestions__list">
-            <li class="frequentQuestions__item"><a href="#!">Как забронировать авиабилет</a></li>
-            <li class="frequentQuestions__item"><a href="#!">Как оплатить авиабилет</a></li>
-            <li class="frequentQuestions__item"><a href="#!">Как зарегистрироваться на рейс</a></li>
-            <li class="frequentQuestions__item"><a href="#!">Как вернуть авиабилет</a></li>
-            <li class="frequentQuestions__item"><a href="#!">Бонусная программа</a></li>
-            <li class="frequentQuestions__item"><a href="#!">Все темы</a></li>
+            <li class="frequentQuestions__item"><a class="frequentQuestions__link" href="#!">Как забронировать авиабилет</a></li>
+            <li class="frequentQuestions__item"><a class="frequentQuestions__link" href="#!">Как оплатить авиабилет</a></li>
+            <li class="frequentQuestions__item"><a class="frequentQuestions__link" href="#!">Как зарегистрироваться на рейс</a></li>
+            <li class="frequentQuestions__item"><a class="frequentQuestions__link" href="#!">Как вернуть авиабилет</a></li>
+            <li class="frequentQuestions__item"><a class="frequentQuestions__link" href="#!">Бонусная программа</a></li>
+            <li class="frequentQuestions__item"><a class="frequentQuestions__link" href="#!">Все темы</a></li>
           </ul>
         </div>
         <div class="section-content__item bestOffers">
@@ -340,15 +364,17 @@
     </div>
 
     <div class="footer-link__list">
-      <div class="footer-link__item">
-        <a href="№!" class="footer-link__item">Партнерская программа</a>
-        <a href="№!" class="footer-link__item"><img class="footer-link__img" src="img/play-store-badge.png" alt="link google play"></a>
-        <a href="№!" class="footer-link__item"><img class="footer-link__img" src="img/Store.png" alt="link app store"></a>
+      <div class="footer-link__program">
+        <a href="№!" class="footer-link__program-link">Партнерская программа</a>
+        <div class="footer-link__program-inner">
+          <a href="№!" class="footer-link__program-item"><img class="footer-link__img" src="img/play-store-badge.png" alt="link google play"></a>
+          <a href="№!" class="footer-link__program-item"><img class="footer-link__img" src="img/Store.png" alt="link app store"></a>
+        </div>
       </div>
-      <div class="footer-link__item">
-        <a href="#!" class="footer-link__facebook"><img class="footer-link__icon" src="img/svg/facebook.svg"></a>
-        <a href="#!" class="footer-link__instagram"><img class="footer-link__icon" src="img/svg/instagram.svg"></a>
-        <a href="#!" class="footer-link__telegram"><img class="footer-link__icon" src="img/svg/telegram.svg"></a>
+      <div class="footer-link__socials">
+        <a href="#!" class="footer-link__socials-item"><img class="footer-link__socials-icon" src="img/svg/facebook.svg"></a>
+        <a href="#!" class="footer-link__socials-item"><img class="footer-link__socials-icon" src="img/svg/instagram.svg"></a>
+        <a href="#!" class="footer-link__socials-item"><img class="footer-link__socials-icon footer-link__socials-icon-telegram" src="img/svg/telegram.svg"></a>
       </div>
     </div>
 
