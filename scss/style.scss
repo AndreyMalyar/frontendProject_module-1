@@ -19,8 +19,9 @@
 /* layout */
 .nav{
   @include flex(right, flex-start);
-  //margin-right: 15px;
+
   &-menu{
+    margin-right: 15px;
     width: 540px;
     @include flex(space-between, flex-start);
     @include _767(display, none);
@@ -130,7 +131,7 @@
       }
     }
   }
-
+  /* ---------- END nav mobile ---------- */
 }
 
 .icon{
@@ -236,6 +237,10 @@
   &__box{
     @include flex(center, stretch);
     gap: 20px;
+    @include _991-block{
+      flex-direction: column;
+      @include flex(center, center);
+    }
   }
   &__item{
     width: 50%;
@@ -248,6 +253,9 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 10px;
+    @include _991-block{
+      width: 100%;
+    }
   }
 }
 
@@ -329,6 +337,15 @@
       "popularDistance popularDistance topTen"
       "hotSales hotSales frequentQuestions"
       "hotSales hotSales bestOffers";
+      @include _991-block{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas:
+      "popularDistance"
+      "topTen"
+      "hotSales"
+      "frequentQuestions"
+      "bestOffers";
+      }
     }
     &__title{
       margin-bottom: 10px;
@@ -378,4 +395,41 @@
   background: bisque;
 }
 
+.accordion{
+  @include flex(space-between, flex-start);
+  gap: 20px;
+  @include _991-block{
+    flex-wrap: wrap;
+  }
+  &__item{
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: center;
+    background-color: #fbdada;
+    @include _991-block{
+      width: calc(100% / 3);
+    }
+    @include _767-block{
+      width: calc(100% / 2);
+    }
+    @include _575-block{
+      width: 100%;
+    }
+  }
+  &__body{
+
+
+    &-item{
+      list-style: none;
+
+    }
+    &-link{
+      text-decoration: none;
+      margin-top: auto;
+
+    }
+  }
+}
 
