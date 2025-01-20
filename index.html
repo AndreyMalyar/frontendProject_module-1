@@ -126,9 +126,37 @@
             </div>
             <img src="./img/svg/calendarDays.svg" class="airTickets-calendarBox__icon" alt="icon calendar">
           </div>
-          <div class="airTickets-seaterBox">
-            <p class="airTickets-seaterBox__label">Пассажиры, класс</p>
-            <p class="airTickets-seaterBox__out"></p>
+          <div class="airTickets-seaterBox" id="airTicketsSeater">
+            <span class="airTickets-seaterBox__label" id="airTicketsLabel">Пассажиры, класс</span>
+            <span class="airTickets-seaterBox__out" id="isTickedSeater"></span>
+            <div class="airTickets-seaterBox__menu" id="airTicketsMenu">
+              <ul class="airTickets-menu">
+                <li class="airTickets-menu__item">
+                  <p class="airTickets-menu__label">Взрослые <span class="airTickets-menu__label_comment">Старше 12 лет</span></p>
+                  <div class="airTickets-menu__btn-box">
+                    <button type="button" class="airTickets-menu__btn decrement" data-id="dec">-</button>
+                    <span class="airTickets-menu__out counter" data-name="adults">0</span>
+                    <button type="button" class="airTickets-menu__btn increment" data-id="inc">+</button>
+                  </div>
+                </li>
+                <li class="airTickets-menu__item">
+                  <span class="airTickets-menu__label">Дети<span class="airTickets-menu__label_comment">2 – 12 лет</span></span>
+                  <div class="airTickets-menu__btn-box">
+                    <button type="button" class="airTickets-menu__btn decrement" data-id="dec">-</button>
+                    <span class="airTickets-menu__out counter" data-name="children">0</span>
+                    <button type="button" class="airTickets-menu__btn increment" data-id="inc">+</button>
+                  </div>
+                </li>
+                <li class="airTickets-menu__item">
+                  <p class="airTickets-menu__label">Младенцы<span class="airTickets-menu__label_comment">до 2 лет</span></p>
+                  <div class="airTickets-menu__btn-box">
+                    <button type="button" class="airTickets-menu__btn decrement" data-id="dec">-</button>
+                    <span class="airTickets-menu__out counter" data-name="babies">0</span>
+                    <button type="button" class="airTickets-menu__btn increment" data-id="inc">+</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <button type="button" class="header-order__btn">Найти</button>

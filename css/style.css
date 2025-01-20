@@ -324,7 +324,7 @@ body {
 }
 .airTickets-inputBox__input:valid ~ .airTickets-inputBox__input-label, .airTickets-inputBox__input:focus ~ .airTickets-inputBox__input-label {
   font-size: 0.9rem;
-  transform: translate(0px, -35px);
+  transform: translate(0px, -32px);
 }
 .airTickets-calendarBox {
   width: 35%;
@@ -339,7 +339,6 @@ body {
   width: 25%;
   height: 90%;
   padding-left: 20px;
-  background-color: blanchedalmond;
   border-left: 1px solid #000;
   display: flex;
   justify-content: flex-start;
@@ -358,12 +357,48 @@ body {
   transform: translateY(-50%);
   transition: 0.3s ease;
 }
+.airTickets-seaterBox__label:hover {
+  color: #6E36F7;
+  cursor: pointer;
+}
 .airTickets-seaterBox__label_active {
   font-size: 0.9rem;
-  transform: translate(0px, -35px);
+  transform: translate(0px, -32px);
 }
 .airTickets-seaterBox__out {
   font-size: 1.1rem;
+}
+.airTickets-seaterBox__menu {
+  width: 130%;
+  padding: 15px 20px;
+  background-color: #fff;
+  border-radius: 16px;
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;
+  display: none;
+}
+.airTickets-seaterBox__menu_active {
+  display: block;
+}
+
+/* ---------- airTickets menu ---------- */
+.airTickets-menu {
+  width: 100%;
+}
+.airTickets-menu__item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0;
+}
+.airTickets-menu__label {
+  display: flex;
+  flex-direction: column;
+}
+.airTickets-menu__label_comment {
+  color: gray;
 }
 
 /* ---------- section adt ---------- */

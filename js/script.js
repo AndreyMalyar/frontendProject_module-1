@@ -100,7 +100,7 @@ const newArr = [...sub, ...sub2];
 
 console.log(newArr);
 
-/* --------- accordion --------- */
+/* --------- accordion footer --------- */
 const panelBtn = document.querySelectorAll(".accordion__item-btn");
 
 panelBtn.forEach(item => {
@@ -118,6 +118,37 @@ panelBtn.forEach(item => {
         item.closest(".accordion__item").querySelector(".accordion__body-link").classList.add("accordion__body-link_active");
     })
 })
-/* --------- END accordion --------- */
+/* --------- END accordion footer --------- */
 
+/* --------- Order menu airTickets (пассажиры класс) --------- */
+const airTicketsSeater = document.getElementById("airTicketsSeater");
+const airTicketsMenu = document.getElementById("airTicketsMenu");
+const airTicketsLabel = document.getElementById("airTicketsLabel");
+let show = true;
 
+airTicketsSeater.addEventListener("click", (evt) => {
+    evt.stopPropagation()
+
+    if (show) {
+        airTicketsMenu.classList.add("airTickets-seaterBox__menu_active");
+        airTicketsLabel.classList.add("airTickets-seaterBox__label_active");
+    } else {
+        airTicketsMenu.classList.remove("airTickets-seaterBox__menu_active");
+        airTicketsLabel.classList.remove("airTickets-seaterBox__label_active");
+    }
+    show = !show;
+})
+
+const decrementsBtn = document.querySelectorAll(".decrement");
+const incrementsBtn = document.querySelectorAll(".increment");
+const counters = document.querySelectorAll(".counter");
+
+const passengers = {
+    adults: 0,
+    children: 0,
+    babies: 0,
+}
+// video 34мин
+incrementsBtn.forEach(btn => {
+    btn.addEventListener("click", (e) => {})
+})
