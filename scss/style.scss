@@ -235,40 +235,28 @@
 
 /* ---------- wrap order ---------- */
 .airTickets{
-  width: 90%;
+  width: 100%;
   height: 100%;
   background-color: $secondary-color;
   @include flex(center, flex-end);
   &-inputBox{
     width: 40%;
-    height: 90%;
+    height: 100%;
     border-right: 1px solid #000;
     @include flex();
     &__inner{
       width: 100%;
       height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 17px 0 0 20px;
+      @include flex();
       flex-direction: column;
       border: none;
       outline: none;
       position: relative;
-      &:after{
-        content: '';
-        width: 2px;
-        height: 80px;
-        background-color: red;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        transform: translateX(+50%);
-      }
     }
     &__input{
       width: 100%;
       display: block;
-      padding: 6px 10px 6px 20px;
       font-size: 1.1rem;
       border: none;
       outline: none;
@@ -277,9 +265,9 @@
       &-label{
         font-size: 1.1rem;
         font-weight: 600;
-        color: rgb(167,162,167);
+        color: $text-gray-color;
         position: absolute;
-        top: 50%;
+        top: 60%;
         left: 20px;
         transform: translateY(-50%);
         transition: 0.3s ease-in-out;
@@ -298,10 +286,10 @@
       width: 30px;
     }
   }
-  &-seaterBox{
+  &-passengerBox{
     width: 25%;
-    height: 90%;
-    padding-left: 20px;
+    height: 100%;
+    padding: 17px 0 0 20px;
     border-left: 1px solid #000;
     @include flex(flex-start, center);
     cursor: pointer;
@@ -309,10 +297,10 @@
     &__label{
       font-size: 1.1rem;
       font-weight: 600;
-      color: rgb(167,162,167);
+      color: $text-gray-color;
       user-select: none;
       position: absolute;
-      top: 50%;
+      top: 60%;
       left: 20px;
       transform: translateY(-50%);
       transition: 0.3s ease;
@@ -327,35 +315,137 @@
     }
     &__out{
       font-size: 1.1rem;
+      line-height: 1.1rem;
     }
     &__menu{
       width: 130%;
-      padding: 15px 20px;
       background-color: $secondary-color;
       border-radius: 16px;
+      border: 1px solid $primary-color;
       position: absolute;
       top: calc(100% + 5px);
       right: 0;
-      display: none;
+      z-index: 100;
+      //display: none;
+      //transform: scaleY(0);
+      transform-origin: center top;
+
+      height: 0;
+      overflow: hidden;
+      transition: .3s ease-in-out;
+      &-container{
+        padding: 15px 20px;
+      }
       &_active{
-        display: block;
+        //display: block;
+        //transform: scaleY(1);
       }
     }
   }
 }
-/* ---------- airTickets menu ---------- */
+
+/* ---------- airTickets passenger menu ---------- */
 .airTickets-menu{
+  padding: 20px 0 20px;
   width: 100%;
+  border-bottom: 1px solid $text-gray-color;
+  &-description{
+    color: $text-gray-color;
+  }
   &__item{
     width: 100%;
     @include flex(space-between);
-    margin: 8px 0;
+    &:not(:first-child){
+      margin-top: 8px;
+    }
   }
   &__label{
     display: flex;
     flex-direction: column;
+    font-size: 1.05rem;
     &_comment{
-      color: gray;
+      color: $text-gray-color;
+      font-size: 0.9rem;
+    }
+  }
+  &__btn{
+    &-box{
+      width: 130px;
+      @include flex(space-between, center);
+    }
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    background: $secondary-color;
+    padding: 5px;
+    font-size: 40px;
+    font-weight: 300;
+    color: $text-gray-color;
+    @include flex(center, center);
+    box-shadow: -3px -3px 8px rgba(0,0,0,0.1), 3px 3px 8px rgba(0,0,0,0.25);
+    transition: .1s linear;
+    &:active{
+      box-shadow: 0 0 0 rgba(0,0,0,0.25), 0 0 0 rgba(0,0,0,0.35);
+    }
+    &:disabled{
+      box-shadow: none;
+      border: 1px solid $text-gray-color;
+    }
+  }
+  &__out{
+    font-size: 1.1rem;
+    line-height: 1.1rem;
+  }
+
+  &-class{
+    padding: 20px 0;
+    &__btnBox{
+      @include flex(flex-start );
+      gap: 10px;
+      margin-top: 10px;
+    }
+    &__btn{
+      @include flex();
+      padding: 10px 15px;
+      border-radius: 30%;
+      font-size: 1.05rem;
+      background-color: $secondary-color;
+      border: none;
+      outline: none;
+      box-shadow: -3px -3px 8px rgba(0,0,0,0.1), 3px 3px 8px rgba(0,0,0,0.25);
+      transition: .1s linear;
+      &_active{
+        box-shadow: none;
+        background-color: $accented-red-color;
+        color: $secondary-color;
+      }
+      &:hover{
+        background-color: $accented-red-color;
+        color: $secondary-color;
+      }
+      &:active{
+        box-shadow: none;
+      }
+    }
+  }
+  &__closeBtn{
+    display: block;
+    width: 100%;
+    height: 40px;
+    font-size: 1.1rem;
+    line-height: 1.1rem;
+    font-weight: 600;
+    background-color: $accented-red-color;
+    color: $secondary-color;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    transition: .1s linear;
+    &:hover{
+      font-size: 1.4rem;
     }
   }
 }
@@ -376,7 +466,7 @@
     background-color: $secondary-color;
     padding: 25px 20px 20px;
     border-radius: 10px;
-    box-shadow: 12px 4px 34px -10px rgba(0,0,0,0.36);
+    box-shadow: -5px -5px 34px -10px rgba(0,0,0,0.36);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -406,6 +496,7 @@
       position: relative;
       top: 50%;
       transform: translateY(-50%);
+      z-index: 1;
     }
   }
   &-btn{

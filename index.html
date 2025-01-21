@@ -103,8 +103,10 @@
         <button type="button" class="header__button-item header__button-item_sales" data-name="hotels" data-label="Отели">Отели <span class="header__button-sales">-60%</span> </button>
         <button type="button" class="header__button-item" data-name="insurance" data-label="Страхование">Страхование</button>
       </div>
+      <!-- заказ авиабилета-->
       <div class="header-order__wrap">
         <div class="airTickets">
+
           <form class="airTickets-inputBox">
             <fieldset class="airTickets-inputBox__inner">
               <input type="text" id="ticketTo" name="ticketTo" class="airTickets-inputBox__input" required>
@@ -115,6 +117,8 @@
               <label for="ticketFrom" class="airTickets-inputBox__input-label">Куда</label>
             </fieldset>
           </form>
+
+          <!-- выбор даты -->
           <div class="airTickets-calendarBox">
             <div class="airTickets-calendarBox__dataTo">
               <p class="airTickets-calendarBox__dataTo-label">Туда</p>
@@ -126,41 +130,61 @@
             </div>
             <img src="./img/svg/calendarDays.svg" class="airTickets-calendarBox__icon" alt="icon calendar">
           </div>
-          <div class="airTickets-seaterBox" id="airTicketsSeater">
-            <span class="airTickets-seaterBox__label" id="airTicketsLabel">Пассажиры, класс</span>
-            <span class="airTickets-seaterBox__out" id="isTickedSeater"></span>
-            <div class="airTickets-seaterBox__menu" id="airTicketsMenu">
-              <ul class="airTickets-menu">
-                <li class="airTickets-menu__item">
-                  <p class="airTickets-menu__label">Взрослые <span class="airTickets-menu__label_comment">Старше 12 лет</span></p>
-                  <div class="airTickets-menu__btn-box">
-                    <button type="button" class="airTickets-menu__btn decrement" data-id="dec">-</button>
-                    <span class="airTickets-menu__out counter" data-name="adults">0</span>
-                    <button type="button" class="airTickets-menu__btn increment" data-id="inc">+</button>
+          <!-- END выбор даты -->
+          <!-- выбор количества пассажиров и класса -->
+          <div class="airTickets-passengerBox" id="airTicketsPassenger">
+            <span class="airTickets-passengerBox__label" id="airTicketsLabel">Пассажиры, класс</span>
+            <span class="airTickets-passengerBox__out" id="outSelectedPassenger"></span>
+            <div class="airTickets-passengerBox__menu" id="airTicketsMenu">
+
+              <div class="airTickets-passengerBox__menu-container">
+                <p class="airTickets-menu-description">Максимум 9 пассажиров</p>
+                <ul class="airTickets-menu">
+                  <li class="airTickets-menu__item">
+                    <p class="airTickets-menu__label">Взрослые <span class="airTickets-menu__label_comment">Старше 12 лет</span></p>
+                    <div class="airTickets-menu__btn-box">
+                      <button type="button" class="airTickets-menu__btn decrement" data-id="adults" disabled>-</button>
+                      <span class="airTickets-menu__out counter" data-id="adults">0</span>
+                      <button type="button" class="airTickets-menu__btn increment" data-id="adults">+</button>
+                    </div>
+                  </li>
+                  <li class="airTickets-menu__item">
+                    <span class="airTickets-menu__label">Дети<span class="airTickets-menu__label_comment">2 – 12 лет</span></span>
+                    <div class="airTickets-menu__btn-box">
+                      <button type="button" class="airTickets-menu__btn decrement" data-id="children" disabled>-</button>
+                      <span class="airTickets-menu__out counter" data-name="children">0</span>
+                      <button type="button" class="airTickets-menu__btn increment" data-id="children">+</button>
+                    </div>
+                  </li>
+                  <li class="airTickets-menu__item">
+                    <p class="airTickets-menu__label">Младенцы<span class="airTickets-menu__label_comment">до 2 лет</span></p>
+                    <div class="airTickets-menu__btn-box">
+                      <button type="button" class="airTickets-menu__btn decrement" data-id="babies" disabled>-</button>
+                      <span class="airTickets-menu__out counter" data-name="babies">0</span>
+                      <button type="button" class="airTickets-menu__btn increment" data-id="babies">+</button>
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="airTickets-menu-class">
+                  <p class="airTickets-menu-class__description">Класс</p>
+                  <div class="airTickets-menu-class__btnBox">
+                    <button class="airTickets-menu-class__btn airTickets-menu-class__btn_active" type="button" data-name="Любой">Любой</button>
+                    <button class="airTickets-menu-class__btn" type="button" data-name="Бизнес">Бизнес</button>
+                    <button class="airTickets-menu-class__btn" type="button" data-name="Эконом">Эконом</button>
                   </div>
-                </li>
-                <li class="airTickets-menu__item">
-                  <span class="airTickets-menu__label">Дети<span class="airTickets-menu__label_comment">2 – 12 лет</span></span>
-                  <div class="airTickets-menu__btn-box">
-                    <button type="button" class="airTickets-menu__btn decrement" data-id="dec">-</button>
-                    <span class="airTickets-menu__out counter" data-name="children">0</span>
-                    <button type="button" class="airTickets-menu__btn increment" data-id="inc">+</button>
-                  </div>
-                </li>
-                <li class="airTickets-menu__item">
-                  <p class="airTickets-menu__label">Младенцы<span class="airTickets-menu__label_comment">до 2 лет</span></p>
-                  <div class="airTickets-menu__btn-box">
-                    <button type="button" class="airTickets-menu__btn decrement" data-id="dec">-</button>
-                    <span class="airTickets-menu__out counter" data-name="babies">0</span>
-                    <button type="button" class="airTickets-menu__btn increment" data-id="inc">+</button>
-                  </div>
-                </li>
-              </ul>
+                </div>
+
+                <button type="button" class="airTickets-menu__closeBtn">ok</button>
+              </div>
+
             </div>
           </div>
+          <!-- END выбор количества пассажиров и класса -->
         </div>
         <button type="button" class="header-order__btn">Найти</button>
       </div>
+      <!-- END заказ авиабилета-->
       <a href="#!" class="header__link">
         <svg class="icon__route">
           <use xlink:href="#route"></use>
