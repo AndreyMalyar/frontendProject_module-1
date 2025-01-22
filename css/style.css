@@ -613,7 +613,7 @@ body {
 .section-content__item-wrap {
   background-color: #fff;
   padding: 15px 20px;
-  box-shadow: 12px 4px 34px -10px rgba(0, 0, 0, 0.36);
+  box-shadow: 12px 4px 30px -10px rgba(0, 0, 0, 0.36);
   border-radius: 15px;
 }
 
@@ -623,7 +623,31 @@ body {
 
 .topTen {
   grid-area: topTen;
-  background: bisque;
+}
+.topTen__list {
+  margin-left: 20px;
+}
+.topTen__item:not(:first-child) {
+  margin-top: 10px;
+}
+.topTen__box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.topTen__link {
+  text-decoration: none;
+  color: #3292f0;
+}
+.topTen__icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+.topTen__inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hotSales {

@@ -78,27 +78,7 @@ openMobileMenu.addEventListener("click", () => {
     }
 })
 
-const popularDistanceArr = [
-    { id: 1, from: "варшава", to: "милан", "price": 771, },
-    { id: 2, from: "варшава", to: "лондон", "price": 1001, },
-    { id: 3, from: "варшава", to: "мадрид", "price": 1646, },
-    { id: 4, from: "варшава", to: "барселона", "price": 1663, },
-    { id: 5, from: "варшава", to: "аликанте", "price": 1424, },
-    { id: 6, from: "варшава", to: "лиссабон", "price": 3364, },
-    { id: 7, from: "варшава", to: "Париж", "price": 4077, },
-    { id: 8, from: "варшава", to: "Нью-Йорк", "price": 21277, },
-    { id: 9, from: "варшава", to: "денпасар-Бали", "price": 25573, },
-    { id: 10, from: "варшава", to: "Амстердам", "price": 3256, },
-]
-popularDistanceArr.sort((a, b) => a.price - b.price)
 
-
-let sub = popularDistanceArr.slice( 0, popularDistanceArr.length / 2 );
-let sub2 = popularDistanceArr.slice( popularDistanceArr.length / 2 );
-
-const newArr = [...sub, ...sub2];
-
-console.log(newArr);
 
 /* --------- accordion footer --------- */
 const panelBtn = document.querySelectorAll(".accordion__item-btn");
@@ -144,6 +124,7 @@ const passengers = {
 airTicketsPassenger.addEventListener("click", (evt) => {
     if (show) {
         // airTicketsMenu.classList.add("airTickets-passengerBox__menu_active");
+        airTicketsLabel.classList.add("airTickets-passengerBox__label_active");
         airTicketsMenu.style.height = airTicketsMenu.scrollHeight + "px";
     } else {
         // airTicketsMenu.classList.remove("airTickets-passengerBox__menu_active");
@@ -169,7 +150,6 @@ function onClickClassBtn(evt) {
         })
         evt.target.classList.add("airTickets-menu-class__btn_active");
         classBtnLabel = evt.target.dataset.name.toLowerCase();
-
     }
 
     document.removeEventListener("click", onClickClassBtn);
@@ -178,6 +158,7 @@ function onClickClassBtn(evt) {
 closeMenuBtn.addEventListener("click", (evt) => {
     airTicketsMenu.style.height = "";
     showSelectPassenger();
+    show = true;
     // evt.stopPropagation();
 });
 
@@ -278,5 +259,74 @@ function checkPassengers(key, inc, evt){
 }
 /* --------- end Order menu airTickets (пассажиры класс) --------- */
 
+/* --------- json server (мок сервер) --------- */
+/* --------- topTen (TOP 10 авиакомпаний) --------- */
+function getAirlineList(){
+    try {
+        fetch("http://localhost:3000/airline")
+            .then(res => res.json())
+            .then(data => {
+                showAirline(data)
+                // console.log(data);
+            })
+    } catch(err){
+        // console.log("err");
+    }
+}
+getAirlineList();
 
+
+function showAirline(arr){
+    const olEl = document.getElementById("topTenList");
+
+    const sorted  = arr.sort((a, b) => b.rating - a.rating);
+    sorted.forEach((airLine, ind) => {
+
+        if(ind < 10){
+            const liEl = document.createElement("li");
+            liEl.classList.add("topTen__item");
+            const box = document.createElement("div");
+            box.classList.add("topTen__box");
+            const imgInner = document.createElement("div");
+            imgInner.classList.add("topTen__inner");
+            const linkEl = document.createElement("a");
+            linkEl.classList.add("topTen__link");
+            linkEl.setAttribute("href", airLine.link);
+            const nameAirLine = document.createElement("span");
+            const ratingAirLine = document.createElement("span");
+
+            const imgEl = document.createElement("img");
+            imgEl.src = "./img/svg/star.svg";
+            imgEl.classList.add("topTen__icon");
+
+            nameAirLine.textContent = airLine.name;
+            ratingAirLine.textContent = airLine.rating;
+            linkEl.append(nameAirLine);
+            imgInner.append(imgEl, ratingAirLine)
+            box.append(linkEl, imgInner);
+            liEl.append(box);
+            olEl.append(liEl);
+        }
+    })
+}
+/* --------- End topTen (TOP 10 авиакомпаний) --------- */
+
+function getPopularDestinations(){
+    try {
+        fetch("http://localhost:3000/popularDestinations")
+            .then(res => res.json())
+            .then(data => {
+                showPopularDestinations(data);
+                // console.log(data);
+            })
+    } catch (err){
+
+    }
+}
+getPopularDestinations();
+
+function showPopularDestinations(arr){
+    const sortArr = arr.sort((a, b) => a.price - b.price);
+    console.log(sortArr);
+}
 

@@ -575,7 +575,7 @@
       &-wrap{
         background-color: #fff;
         padding: 15px 20px;
-        box-shadow: 12px 4px 34px -10px rgba(0,0,0,0.36);
+        box-shadow: 12px 4px 30px -10px rgba(0,0,0,0.36);
         border-radius: 15px;
       }
     }
@@ -586,7 +586,29 @@
 }
 .topTen{
   grid-area: topTen;
-  background: bisque;
+  &__list{
+    margin-left: 20px;
+  }
+  &__item{
+    &:not(:first-child){
+      margin-top: 10px;
+    }
+  }
+  &__box{
+    @include flex(space-between);
+  }
+  &__link{
+    text-decoration: none;
+    color: $link-blue-color;
+  }
+  &__icon{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  &__inner{
+    @include flex(center, center);
+  }
 }
 .hotSales{
   grid-area: hotSales;

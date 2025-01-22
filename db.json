@@ -1,0 +1,28 @@
+{
+  "airline": [
+    { "id": "1", "name": "Эмирейтс", "link": "https://www.google.com/", "rating": 4.7 },
+    { "id": "2", "name": "Катар Эйрвейз", "link": "https://www.google.com/", "rating": 4.7 },
+    { "id": 3, "name": "Тюркиш Эйрлайнз", "link": "https://www.google.com/", "rating": 4.7 },
+    { "id": 4, "name": "Сингапур Эйрлайнз", "link": "https://www.google.com/", "rating": 4.7 },
+    { "id": 5, "name": "Кореан Эйр", "link": "https://www.google.com/", "rating": 4.7 },
+    { "id": 6, "name": "Этихад Эйрлайнз", "link": "https://www.google.com/", "rating": 4.6 },
+    { "id": 7, "name": "Катай Пафисик", "link": "https://www.google.com/", "rating": 4.5 },
+    { "id": 8, "name": "Эйр Астана", "link": "https://www.google.com/", "rating": 4.5 },
+    { "id": 9, "name": "Вирджин Атлаттик Эйрвейз", "link": "https://www.google.com/", "rating": 4.5 },
+    { "id": 10, "name": "Азур Эйр", "link": "https://www.google.com/", "rating": 4.4 },
+    { "id": 11, "name": "Армения Эйрвейз", "link": "https://www.google.com/", "rating": 4.0 },
+    { "id": 12, "name": "Эйр Нью Зиланд", "link": "https://www.google.com/", "rating": 4.5 }
+  ],
+  "popularDestinations":[
+    {"id": 1, "from": "варшава", "to": "милан", "price": "771"},
+    {"id": 2, "from": "варшава", "to": "лондон", "price": "1001"},
+    {"id": 3, "from": "варшава", "to": "мадрид", "price": "1646"},
+    {"id": 4, "from": "варшава", "to": "барселона", "price": "1663"},
+    {"id": 5, "from": "варшава", "to": "аликанте", "price": "1424"},
+    {"id": 6, "from": "варшава", "to": "лиссабон", "price": "3364"},
+    {"id": 7, "from": "варшава", "to": "Париж", "price": "4077"},
+    {"id": 8, "from": "варшава", "to": "Нью-Йорк", "price": "21277"},
+    {"id": 9, "from": "варшава", "to": "денпасар-Бали", "price": "25573"},
+    {"id": 10, "from": "варшава", "to": "Амстердам", "price": "3256"}
+  ]
+}
