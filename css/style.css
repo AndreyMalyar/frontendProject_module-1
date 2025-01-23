@@ -34,6 +34,38 @@ body {
 }
 
 /* globs */
+/* ----- css loaders ------ */
+.loader {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: none;
+  margin: 15px auto;
+  position: relative;
+  background: #ccc;
+  box-shadow: -24px 0 #ccc, 24px 0 #ccc;
+  box-sizing: border-box;
+  animation: shadowPulse 2s linear infinite;
+}
+.loader_active {
+  display: block;
+}
+
+@keyframes shadowPulse {
+  33% {
+    background: #ccc;
+    box-shadow: -24px 0 #FF3D00, 24px 0 #ccc;
+  }
+  66% {
+    background: #FF3D00;
+    box-shadow: -24px 0 #ccc, 24px 0 #ccc;
+  }
+  100% {
+    background: #ccc;
+    box-shadow: -24px 0 #ccc, 24px 0 #FF3D00;
+  }
+}
+/* ----- css loaders ------ */
 .main {
   background-color: rgb(239, 241, 244);
   padding: 20px 0 80px;
@@ -617,7 +649,7 @@ body {
   border-radius: 15px;
 }
 
-.popularDistance {
+.popularDist {
   grid-area: popularDistance;
 }
 

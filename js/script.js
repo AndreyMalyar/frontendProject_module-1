@@ -1,4 +1,5 @@
 
+
 const menuTicketBody = document.querySelector("#menuSelectTickets_body");
 const menuTicketTitle = document.querySelector("#menuSelectTickets_title");
 const headerTitle = document.querySelector(".header__title");
@@ -310,9 +311,13 @@ function showAirline(arr){
     })
 }
 /* --------- End topTen (TOP 10 авиакомпаний) --------- */
+/* ---------- loader --------- */
+const loader = document.getElementById("loader");
+/* ---------- END loader --------- */
 
 function getPopularDestinations(){
     try {
+
         fetch("http://localhost:3000/popularDestinations")
             .then(res => res.json())
             .then(data => {
@@ -327,6 +332,21 @@ getPopularDestinations();
 
 function showPopularDestinations(arr){
     const sortArr = arr.sort((a, b) => a.price - b.price);
-    console.log(sortArr);
+    let subLeft = sortArr.slice( 0, sortArr.length / 2 );
+    let subRight = sortArr.slice( sortArr.length / 2 );
+    let mobileArr = sortArr;
+
+    const ulLeft = document.getElementById("popularDistLeft");
+    const ulRight = document.getElementById("popularDistRight");
+    const ulMob = document.getElementById("popularDistMobile");
+
+    const liDistLeft = document.createElement("li");
+    liDistLeft.classList.add("popularDist__left-item");
+    const liDistRight = document.createElement("li");
+    liDistRight.classList.add("popularDist__right-item")
+    const liDistMob = document.createElement("li");
+    liDistMob.classList.add("popularDist__mob-item");
+
+
 }
 
