@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --container-width: 1200px;
   --container-padding: 15px;
@@ -33,24 +34,7 @@ body {
   margin: 0 auto;
 }
 
-/* globs */
 /* ----- css loaders ------ */
-.loader {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  display: none;
-  margin: 15px auto;
-  position: relative;
-  background: #ccc;
-  box-shadow: -24px 0 #ccc, 24px 0 #ccc;
-  box-sizing: border-box;
-  animation: shadowPulse 2s linear infinite;
-}
-.loader_active {
-  display: block;
-}
-
 @keyframes shadowPulse {
   33% {
     background: #ccc;
@@ -65,7 +49,169 @@ body {
     box-shadow: -24px 0 #ccc, 24px 0 #FF3D00;
   }
 }
-/* ----- css loaders ------ */
+.loaderBox {
+  width: 100%;
+  text-align: center;
+  display: none;
+  margin: 0 auto;
+}
+.loaderBox_active {
+  display: block;
+}
+.loaderBox__loader {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: block;
+  margin: 15px auto;
+  position: relative;
+  background: #ccc;
+  box-shadow: -24px 0 #ccc, 24px 0 #ccc;
+  box-sizing: border-box;
+  animation: shadowPulse 2s linear infinite;
+}
+.loaderBox__text {
+  font-size: 0.9rem;
+  letter-spacing: 0.7rem;
+  color: #999;
+}
+
+/* ----- end css loaders ------ */
+.icon__globe {
+  color: transparent;
+  fill: #fff;
+  width: 22px;
+  height: 22px;
+  margin-right: 5px;
+}
+.icon__route {
+  width: 22px;
+  height: 22px;
+  fill: #fff;
+  margin-right: 8px;
+}
+.icon__burger {
+  color: transparent;
+  fill: #fff;
+  width: 22px;
+  height: 22px;
+}
+.icon__close {
+  color: transparent;
+  fill: #fff;
+  width: 22px;
+  height: 22px;
+}
+.icon__angleRight {
+  color: transparent;
+  fill: #000;
+  width: 22px;
+  height: 18px;
+}
+
+/* ---------- accordion ---------- */
+.accordion {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+@media (max-width: 992px) {
+  .accordion {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}
+.accordion__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: flex-start;
+}
+@media (max-width: 992px) {
+  .accordion__item {
+    width: 33.3333333333%;
+  }
+}
+@media (max-width: 768px) {
+  .accordion__item {
+    width: 100%;
+  }
+}
+.accordion__item-btn {
+  font-size: 1.05rem;
+  font-weight: 600;
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+@media (max-width: 768px) {
+  .accordion__item-btn {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    padding: 10px 0;
+    margin-bottom: 0;
+  }
+  .accordion__item-btn:not(:last-child) {
+    border-bottom: none;
+  }
+}
+.accordion__item-icon {
+  display: none;
+  margin-right: 5px;
+  transition: 0.3s ease-in-out;
+}
+.accordion__item-icon_active {
+  transform: rotate(90deg);
+}
+@media (max-width: 768px) {
+  .accordion__item-icon {
+    display: block;
+  }
+}
+.accordion__body {
+  height: 155px;
+}
+@media (max-width: 768px) {
+  .accordion__body {
+    height: 0;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+  }
+  .accordion__body_active {
+    height: 155px;
+  }
+}
+.accordion__body-item {
+  list-style: none;
+}
+.accordion__body-link {
+  display: block;
+  text-decoration: none;
+  margin-top: auto;
+  color: #3292f0;
+}
+@media (max-width: 768px) {
+  .accordion__body-link {
+    margin-top: 10px;
+    display: none;
+  }
+  .accordion__body-link_active {
+    display: block;
+  }
+}
+.accordion__body-link_arrow {
+  margin-left: 5px;
+  font-size: 1.05rem;
+}
+
+/* ---------- END accordion ---------- */
+/* globs */
 .main {
   background-color: rgb(239, 241, 244);
   padding: 20px 0 80px;
@@ -195,38 +341,6 @@ body {
   position: absolute;
   top: 15px;
   right: 20px;
-}
-
-.icon__globe {
-  color: transparent;
-  fill: #fff;
-  width: 22px;
-  height: 22px;
-  margin-right: 5px;
-}
-.icon__route {
-  width: 22px;
-  height: 22px;
-  fill: #fff;
-  margin-right: 8px;
-}
-.icon__burger {
-  color: transparent;
-  fill: #fff;
-  width: 22px;
-  height: 22px;
-}
-.icon__close {
-  color: transparent;
-  fill: #fff;
-  width: 22px;
-  height: 22px;
-}
-.icon__angleRight {
-  color: transparent;
-  fill: #000;
-  width: 22px;
-  height: 18px;
 }
 
 .header {
@@ -624,16 +738,15 @@ body {
   margin-top: 30px;
 }
 .section-content__box {
-  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  grid-template-areas: "popularDistance popularDistance topTen" "hotSales hotSales frequentQuestions" "hotSales hotSales bestOffers";
+  grid-template-areas: "popularDestance popularDestance topTen" "hotSales hotSales frequentQuestions" "hotSales hotSales bestOffers";
 }
 @media (max-width: 992px) {
   .section-content__box {
     grid-template-columns: repeat(1, 1fr);
-    grid-template-areas: "popularDistance" "topTen" "hotSales" "frequentQuestions" "bestOffers";
+    grid-template-areas: "popularDestance" "topTen" "hotSales" "frequentQuestions" "bestOffers";
   }
 }
 .section-content__title {
@@ -643,16 +756,53 @@ body {
   height: fit-content;
 }
 .section-content__item-wrap {
+  width: 100%;
   background-color: #fff;
   padding: 15px 20px;
   box-shadow: 12px 4px 30px -10px rgba(0, 0, 0, 0.36);
   border-radius: 15px;
 }
 
-.popularDist {
-  grid-area: popularDistance;
+/* ---------- PopularDest (Популярные направления) ---------- */
+#popularDestMobile {
+  display: none;
 }
 
+.popularDest {
+  grid-area: popularDestance;
+}
+.popularDest__row {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+}
+.popularDest__item {
+  width: 50%;
+  display: block;
+}
+.popularDest__list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  padding: 20px 0;
+}
+.popularDest__list-item:not(:last-child) {
+  border-bottom: 3px solid #f00;
+}
+.popularDest__list-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popularDest__list-arrow {
+  margin: 0 5px;
+}
+.popularDest__list-price {
+  color: #FF4D4D;
+}
+
+/* ---------- topTen (Топ-10 авиакомпаний) ---------- */
 .topTen {
   grid-area: topTen;
 }
@@ -682,6 +832,7 @@ body {
   align-items: center;
 }
 
+/* ---------- END topTen (Топ-10 авиакомпаний) ---------- */
 .hotSales {
   grid-area: hotSales;
 }
@@ -822,108 +973,6 @@ body {
   background-color: transparent;
 }
 
-/* ---------- accordion ---------- */
-.accordion {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-@media (max-width: 992px) {
-  .accordion {
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-  }
-}
-.accordion__item {
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
-  align-items: flex-start;
-}
-@media (max-width: 992px) {
-  .accordion__item {
-    width: 33.3333333333%;
-  }
-}
-@media (max-width: 768px) {
-  .accordion__item {
-    width: 100%;
-  }
-}
-.accordion__item-btn {
-  font-size: 1.05rem;
-  font-weight: 600;
-  background: none;
-  border: none;
-  outline: none;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-}
-@media (max-width: 768px) {
-  .accordion__item-btn {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    cursor: pointer;
-    padding: 10px 0;
-    margin-bottom: 0;
-  }
-  .accordion__item-btn:not(:last-child) {
-    border-bottom: none;
-  }
-}
-.accordion__item-icon {
-  display: none;
-  margin-right: 5px;
-  transition: 0.3s ease-in-out;
-}
-.accordion__item-icon_active {
-  transform: rotate(90deg);
-}
-@media (max-width: 768px) {
-  .accordion__item-icon {
-    display: block;
-  }
-}
-.accordion__body {
-  height: 155px;
-}
-@media (max-width: 768px) {
-  .accordion__body {
-    height: 0;
-    overflow: hidden;
-    transition: 0.3s ease-in-out;
-  }
-  .accordion__body_active {
-    height: 155px;
-  }
-}
-.accordion__body-item {
-  list-style: none;
-}
-.accordion__body-link {
-  display: block;
-  text-decoration: none;
-  margin-top: auto;
-  color: #3292f0;
-}
-@media (max-width: 768px) {
-  .accordion__body-link {
-    margin-top: 10px;
-    display: none;
-  }
-  .accordion__body-link_active {
-    display: block;
-  }
-}
-.accordion__body-link_arrow {
-  margin-left: 5px;
-  font-size: 1.05rem;
-}
-
-/* ---------- END accordion ---------- */
 /* ---------- end footer ---------- */
 
 /*# sourceMappingURL=style.css.map */

@@ -117,6 +117,7 @@
               <label for="ticketFrom" class="airTickets-inputBox__input-label">Куда</label>
             </fieldset>
           </form>
+          <span>⇄</span>
 
           <!-- выбор даты -->
           <div class="airTickets-calendarBox">
@@ -225,33 +226,28 @@
   <section class="section section-content">
     <div class="container">
       <div class="section-content__box">
-        <div class="section-content__item popularDist">
-          <h3 class="section-content__title popularDist__title">Популярные направления</h3>
-          <div class="section-content__item-wrap popularDist__list">
-            <div class="popularDist__row">
-              <div class="popularDist__left">
-                <ul class="popularDist__left-list" id="popularDistLeft">
+        <div class="section-content__item popularDest">
+          <h3 class="section-content__title popularDest__title">Популярные направления</h3>
+          <div class="section-content__item-wrap loaderWrapper" data-name="popularDest">
+            <div class="popularDest__row">
+              <!-- __________ css loader __________ -->
+              <!-- __________ END css loader __________ -->
+              <ul class="popularDest__item popularDest__list" id="popularDestLeft">
 
-                </ul>
-              </div>
-              <div class="popularDist__right">
-                <ul class="popularDist__left-list" id="popularDistRight">
+              </ul>
+              <ul class="popularDest__item popularDest__list" id="popularDestRight">
 
-                </ul>
-              </div>
-              <div class="popularDist__mobile">
-                <ul class="popularDist__mobile" id="popularDistMobile">
+              </ul>
+              <ul class="popularDest__item popularDest__list" id="popularDestMobile">
 
-                </ul>
-              </div>
+              </ul>
             </div>
           </div>
         </div>
         <div class="section-content__item topTen">
           <h3 class="section-content__title topTen__title">Топ-10 авиакомпаний</h3>
-          <div class="section-content__item-wrap">
+          <div class="section-content__item-wrap loaderWrapper" data-name="topTen">
             <!-- __________ css loaders __________ -->
-            <span class="loader loader_active"></span>
             <!-- __________ END css loaders __________ -->
             <ol class="topTen__list" id="topTenList">
 
@@ -454,7 +450,10 @@
 
 </footer>
 
-
+<script src="./js/module/loader.js"></script>
+<script src="./js/module/topTen.js"></script>
+<script src="./js/module/popularDest.js"></script>
+<script src="./js/module/accordion.js"></script>
 <script src="./js/script.js"></script>
 </body>
 </html>
