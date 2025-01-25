@@ -12,7 +12,10 @@
 //components
 @import "components/loader";
 @import "components/icon";
+@import "components/nav";
+@import "components/header";
 @import "components/accordion";
+@import "components/footer";
 
 
 /* globs */
@@ -25,189 +28,6 @@
 }
 
 /* layout */
-.nav{
-  @include flex(right, flex-start);
-
-  &-menu{
-    margin-right: 15px;
-    width: 540px;
-    @include flex(space-between, flex-start);
-    @include _767(display, none);
-    &__item{
-      list-style: none;
-      text-align: center;
-    }
-    &__link{
-      text-decoration: none;
-      color: rgba(255, 255, 255, 0.6);
-      transition: 0.2s linear;
-      &:hover{
-        color: $secondary-color;
-      }
-    }
-    &__select{
-      list-style: none;
-      position: relative;
-      color: $secondary-color;
-      &:hover &-arrow{
-        transform: rotate(90deg);
-      }
-      &:hover &-body{
-        transform: scaleY(1);
-      }
-      &-header{
-        &-current{
-          list-style: none;
-          cursor: pointer;
-          display: flex;
-          color: rgba(255, 255, 255, 0.6);
-          transition: 0.2s linear;
-          &:hover{
-            color: $secondary-color;
-          }
-        }
-      }
-      &-item{
-        list-style: none;
-        cursor: pointer;
-        padding: 3px 5px;
-        &:hover{
-          background-color: $accented-red-color;
-          color: $secondary-color;
-        }
-      }
-      &-title{
-
-      }
-      &-arrow{
-        font-size: 0.8rem;
-        transform: rotate(-90deg);
-        position: absolute;
-        top: 0;
-        right: -15px;
-        transition: .2s linear;
-      }
-      &-body{
-        position: absolute;
-        top: 25px;
-        left: 0;
-        background-color: rgba(255 255 255 / 0.5);
-        transform: scaleY(0);
-        transform-origin: center top;
-        transition: .2s linear;
-      }
-    }
-  }
-  /* ---------- nav mobile ---------- */
-  &-menuMobile{
-    display: none;
-    @include _767-block{
-      display: block;
-    }
-    &__header{
-      width: 80px;
-      @include flex(space-between);
-      &-item{
-        list-style: none;
-      }
-    }
-    &__body{
-      @include flex();
-      flex-direction: column;
-      padding-top: 40px;
-      position: absolute;
-      top: -140px;
-      left: 0;
-      width: 100%;
-      height: 140px;
-      background-color: $primary-color;
-      transition: .3s ease-in-out;
-      &-item{
-        list-style: none;
-        &:not(:last-child){
-          margin-bottom: 10px;
-        }
-      }
-      &-link{
-        text-decoration: none;
-        color: $secondary-color;
-      }
-      &-close{
-        position: absolute;
-        top: 15px;
-        right: 20px;
-      }
-    }
-  }
-  /* ---------- END nav mobile ---------- */
-}
-
-
-
-.header{
-  background-color: $primary-color;
-  padding: 30px 0 100px;
-
-  &__title{
-    font-size: 45px;
-    margin: 60px 0 40px;
-  }
-  &__button-list{
-    @include flex(left);
-    gap: 10px;
-  }
-  &__button-item{
-    display: block;
-    padding: 8px 20px;
-    border-radius: 50px;
-    border: none;
-    outline: none;
-    background-color: $primary-light-color;
-    color: $secondary-color;
-    font-weight: 600;
-    transition: .2s ease-in-out;
-    cursor: pointer;
-    &_active{
-      background-color: $secondary-color;
-      color: #000;
-    }
-    &_sales{
-      padding-right: 5px;
-    }
-    &:hover{
-      background-color: $secondary-color;
-      color: #000;
-    }
-    &:active{
-      background-color: $primary-light-color;
-    }
-  }
-  &__button-sales{
-    margin-left: 5px;
-    padding: 5px 10px;
-    border-radius: 20px;
-    background-color: green;
-    color: $secondary-color;
-  }
-  &-order__wrap{
-    width: 100%;
-    height: 80px;
-    margin: 15px 0 20px;
-    @include flex();
-    gap: 10px;
-  }
-  &-order__btn{
-    width: 10%;
-    height: 100%;
-    display: block;
-    background-color: $accented-red-color;
-  }
-  &__link{
-    display: inline-block;
-    text-decoration: none;
-    color: $secondary-color;
-  }
-}
 
 /* ---------- wrap order ---------- */
 .airTickets{
@@ -455,10 +275,14 @@
 }
 
 .controlTelegram{
+  position: relative;
   &__list{
     width: 400px;
     display: flex;
     flex-wrap: wrap;
+    @include _575-block{
+      flex-direction: column;
+    }
   }
   &__text{
     font-size: 0.9rem;
@@ -473,24 +297,44 @@
       top: 50%;
       transform: translateY(-50%);
       z-index: 1;
+      @include _575-block{
+        top: 0;
+        transform: translateY(0);
+      }
     }
   }
-  &-btn{
+  &__btn{
+    width: 235px;
+    height: 45px;
     margin-top: 5px;
-    padding: 15px 25px;
-    font-size: 1.1rem;
+    border-radius: 8px;
+    font-size: 1rem;
     font-weight: 500;
     outline: none;
     border: none;
     background-color: $accented-lightRed-color;
     color: $accented-red-color;
     cursor: pointer;
+    transition: 0.2s linear;
+    &:hover{
+      font-size: 1.05rem;
+    }
+  }
+  &__img{
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    @include _575(display, none);
   }
 }
 .busTickets{
+  position: relative;
   &__list{
     width: 380px;
     display: flex;
+    @include _575-block{
+      flex-direction: column;
+    }
   }
   &__text{
     font-size: 0.9rem;
@@ -504,18 +348,34 @@
       position: relative;
       top: 50%;
       transform: translateY(-50%);
+      @include _575-block{
+        top: 0;
+        transform: translateY(0);
+      }
     }
   }
-  &-btn{
+  &__btn{
+    width: 150px;
+    height: 45px;
     margin-top: 5px;
-    padding: 15px 25px;
-    font-size: 1.1rem;
+    border-radius: 8px;
+    font-size: 1rem;
     font-weight: 500;
     outline: none;
     border: none;
     background-color: $accented-red-color;
     color: $secondary-color;
     cursor: pointer;
+    transition: 0.2s linear;
+    &:hover{
+      font-size: 1.05rem;
+    }
+  }
+  &__img{
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    @include _575(display, none);
   }
 }
 /* ---------- end section adt ---------- */
@@ -691,7 +551,7 @@
   }
 }
 /* ---------- END frequentQuestions (Частые вопросы) ---------- */
-/* ---------- bestOffers (Частые вопросы) ---------- */
+/* ---------- bestOffers (Лучшие предложения) ---------- */
 #bestOffers{
   position: relative;
 }
@@ -799,103 +659,5 @@
     }
   }
 }
-/* ---------- END bestOffers (Частые вопросы) ---------- */
+/* ---------- END bestOffers (Лучшие предложения) ---------- */
 
-
-/* ---------- footer ---------- */
-.footer{
-  padding: 20px 0 30px;
-  background: $secondary-color;
-  border-bottom: 5px solid #000;
-  &-logo__list{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-  }
-  &-logo__item{
-    max-height: 50px;
-    @include _767-block{
-      max-height: 40px;
-    }
-    @include _575-block{
-      max-height: 25px;
-    }
-  }
-
-  &-link__list{
-    margin: 40px 0;
-    padding-top: 40px;
-    border-top: 1px solid #000;
-    @include flex(space-between, center);
-    gap: 10px;
-    @include _767-block{
-      flex-direction: column;
-      gap: 30px;
-    }
-  }
-  &-link__program{
-    display: flex;
-    @include _767-block{
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    &-link{
-      display: block;
-      text-decoration: none;
-      width: 210px;
-      height: 40px;
-      margin-right: 20px;
-      font-size: 0.9rem;
-      border: 2px solid $link-blue-color;
-      color: $link-blue-color;
-      @include flex();
-      transition: 0.3s ease-in-out;
-      &:hover{
-        font-size: 1rem;
-      }
-      @include _767-block{
-        flex-direction: column;
-        margin-right: 0;
-        margin-bottom: 20px;
-      }
-    }
-  }
-  &-link__inner{
-    height: 40px;
-    width: 285px;
-    @include flex(space-between, center);
-  }
-  &-link__img{
-    height: 40px;
-  }
-  &-link__socials{
-    width: 140px;
-    height: 40px;
-    @include flex(space-between, center);
-    &-item{
-      display: block;
-    }
-    &-icon{
-      display: block;
-      width: 40px;
-      height: 40px;
-      padding: 8px;
-      background-color: rgb(167,162,167);
-      border-radius: 50%;
-      transition: 0.2s ease-in-out;
-      &:hover{
-        background-color: $accented-red-color;
-      }
-      &-telegram{
-        padding: 0;
-        background-color: $secondary-color;
-        &:hover{
-          background-color: $secondary-color;
-        }
-      }
-    }
-  }
-}
-/* ---------- end footer ---------- */
