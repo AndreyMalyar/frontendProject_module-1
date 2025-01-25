@@ -109,15 +109,15 @@
 
           <form class="airTickets-inputBox">
             <fieldset class="airTickets-inputBox__inner">
-              <input type="text" id="ticketTo" name="ticketTo" class="airTickets-inputBox__input" required>
-              <label for="ticketTo" class="airTickets-inputBox__input-label">Откуда</label>
+              <input type="text" id="ticketFrom" name="ticketFrom" class="airTickets-inputBox__input" required>
+              <label for="ticketFrom" class="airTickets-inputBox__input-label">Откуда</label>
             </fieldset>
             <fieldset class="airTickets-inputBox__inner">
-              <input type="text" id="ticketFrom" name="ticketFrom" class="airTickets-inputBox__input" required>
-              <label for="ticketFrom" class="airTickets-inputBox__input-label">Куда</label>
+              <input type="text" id="ticketTo" name="ticketTo" class="airTickets-inputBox__input" required>
+              <label for="ticketTo" class="airTickets-inputBox__input-label">Куда</label>
             </fieldset>
+            <span>⇄</span>
           </form>
-          <span>⇄</span>
 
           <!-- выбор даты -->
           <div class="airTickets-calendarBox">
@@ -280,12 +280,20 @@
             <li class="frequentQuestions__item"><a class="frequentQuestions__link" href="#!">Все темы</a></li>
           </ul>
         </div>
-        <div class="section-content__item bestOffers">
+        <div class="section-content__item bestOffers" id="bestOffers">
           <h3 class="bestOffers__title">Лучшие предложения для путешествий</h3>
-          <img src="" alt="">
-          <form action="">
-            <input type="email">
-            <input type="submit" value="111">
+          <img src="./img/bestOffers1.png" class="bestOffers__img" alt="best offers">
+          <form action="" class="bestOffers__form" id="bestOffersForm">
+            <fieldset class="bestOffers__inner">
+              <input type="email" class="bestOffers__input" id="bestOffersEmail" name="bestOffersEmail">
+              <label for="bestOffersEmail" class="bestOffers__input-label">Email *</label>
+              <div class="bestOffers__errorInfo"></div>
+            </fieldset>
+            <button type="submit" class="bestOffers__btn">
+              <svg class="bestOffers__btn-icon icon__arrow">
+                <use xlink:href="#angleRight"></use>
+              </svg>
+            </button>
           </form>
         </div>
       </div>
@@ -453,6 +461,7 @@
 <script src="./js/module/loader.js"></script>
 <script src="./js/module/topTen.js"></script>
 <script src="./js/module/popularDest.js"></script>
+<script src="./js/module/bestOffers.js"></script>
 <script src="./js/module/accordion.js"></script>
 <script src="./js/script.js"></script>
 </body>

@@ -767,6 +767,29 @@ body {
 #popularDestMobile {
   display: none;
 }
+@media (max-width: 768px) {
+  #popularDestMobile {
+    display: block;
+  }
+}
+
+#popularDestLeft {
+  display: block;
+}
+@media (max-width: 768px) {
+  #popularDestLeft {
+    display: none;
+  }
+}
+
+#popularDestRight {
+  display: block;
+}
+@media (max-width: 768px) {
+  #popularDestRight {
+    display: none;
+  }
+}
 
 .popularDest {
   grid-area: popularDestance;
@@ -780,6 +803,11 @@ body {
   width: 50%;
   display: block;
 }
+@media (max-width: 768px) {
+  .popularDest__item {
+    width: 100%;
+  }
+}
 .popularDest__list-item {
   display: flex;
   justify-content: space-between;
@@ -788,15 +816,57 @@ body {
   padding: 20px 0;
 }
 .popularDest__list-item:not(:last-child) {
-  border-bottom: 3px solid #f00;
+  border-bottom: 1px solid #999;
 }
 .popularDest__list-box {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.popularDest__list-content {
+  width: fit-content;
+}
+@media (max-width: 1200px) {
+  .popularDest__list-content {
+    width: 120px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 992px) {
+  .popularDest__list-content {
+    width: fit-content;
+    display: block;
+  }
+}
+@media (max-width: 400px) {
+  .popularDest__list-content {
+    width: 120px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
 .popularDest__list-arrow {
   margin: 0 5px;
+}
+.popularDest__list-toText {
+  width: fit-content;
+}
+@media (max-width: 1200px) {
+  .popularDest__list-toText {
+    width: 100%;
+  }
+}
+@media (max-width: 1200px) {
+  .popularDest__list-toText {
+    width: fit-content;
+  }
+}
+@media (max-width: 400px) {
+  .popularDest__list-toText {
+    flex-wrap: wrap;
+    width: 100%;
+  }
 }
 .popularDest__list-price {
   color: #FF4D4D;
@@ -833,6 +903,7 @@ body {
 }
 
 /* ---------- END topTen (Топ-10 авиакомпаний) ---------- */
+/* ---------- hotSales (Горящие распродажи авиарейсов) ---------- */
 .hotSales {
   grid-area: hotSales;
 }
@@ -847,6 +918,8 @@ body {
   color: #939393;
 }
 
+/* ---------- END hotSales (Горящие распродажи авиарейсов) ---------- */
+/* ---------- frequentQuestions (Частые вопросы) ---------- */
 .frequentQuestions {
   grid-area: frequentQuestions;
 }
@@ -861,11 +934,141 @@ body {
   color: #3292f0;
 }
 
-.bestOffers {
-  grid-area: bestOffers;
-  background: bisque;
+/* ---------- END frequentQuestions (Частые вопросы) ---------- */
+/* ---------- bestOffers (Частые вопросы) ---------- */
+#bestOffers {
+  position: relative;
 }
 
+.bestOffers {
+  grid-area: bestOffers;
+  background: rgb(208, 209, 251);
+  padding: 50px 30px 20px;
+}
+.bestOffers__title {
+  max-width: 200px;
+  font-weight: 400;
+  line-height: 130%;
+}
+@media (max-width: 1200px) {
+  .bestOffers__title {
+    max-width: 180px;
+  }
+}
+@media (max-width: 992px) {
+  .bestOffers__title {
+    max-width: 200px;
+  }
+}
+@media (max-width: 400px) {
+  .bestOffers__title {
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+.bestOffers__img {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 135px;
+}
+@media (max-width: 1200px) {
+  .bestOffers__img {
+    right: 5px;
+  }
+}
+@media (max-width: 400px) {
+  .bestOffers__img {
+    display: none;
+  }
+}
+.bestOffers__form {
+  width: 100%;
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+@media (max-width: 400px) {
+  .bestOffers__form {
+    flex-direction: column;
+  }
+}
+.bestOffers__inner {
+  width: 85%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+@media (max-width: 400px) {
+  .bestOffers__inner {
+    width: 100%;
+  }
+}
+.bestOffers__input {
+  width: 100%;
+  padding: 35px 10px 15px 20px;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.bestOffers__input-label {
+  position: absolute;
+  top: 56%;
+  left: 20px;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  color: #999;
+  transition: 0.2s ease-in-out;
+}
+.bestOffers__input-label_active {
+  font-size: 0.9rem;
+  transform: translateY(-28px);
+}
+.bestOffers__input-label_error {
+  color: #FF4D4D;
+}
+.bestOffers__input:focus ~ .bestOffers__input-label {
+  font-size: 0.9rem;
+  transform: translateY(-28px);
+}
+.bestOffers__input_error {
+  border: 2px solid #FF4D4D;
+}
+.bestOffers__btn {
+  display: block;
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background: #FF4D4D;
+}
+@media (max-width: 400px) {
+  .bestOffers__btn {
+    width: 100%;
+    height: 50px;
+  }
+}
+.bestOffers__btn:active {
+  background: #fbdada;
+}
+.bestOffers__btn:hover .bestOffers__btn-icon {
+  width: 35px;
+  height: 35px;
+}
+.bestOffers__btn-icon {
+  width: 22px;
+  height: 22px;
+  fill: #fff;
+  transition: 0.2s ease-in-out;
+}
+
+/* ---------- END bestOffers (Частые вопросы) ---------- */
 /* ---------- footer ---------- */
 .footer {
   padding: 20px 0 30px;

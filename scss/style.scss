@@ -560,7 +560,17 @@
 /* ---------- PopularDest (Популярные направления) ---------- */
 #popularDestMobile{
   display: none;
+  @include _767(display, block);
 }
+#popularDestLeft{
+  display: block;
+  @include _767(display, none);
+}
+#popularDestRight{
+  display: block;
+  @include _767(display, none);
+}
+
 .popularDest{
   grid-area: popularDestance;
 
@@ -573,6 +583,7 @@
   &__item{
     width: 50%;
     display: block;
+    @include _767(width, 100%);
   }
 
   &__list{
@@ -581,14 +592,41 @@
       list-style: none;
       padding: 20px 0;
       &:not(:last-child){
-        border-bottom: 3px solid #f00;
+        border-bottom: 1px solid $text-gray-color;
       }
     }
     &-box{
       @include flex();
+
+    }
+    &-content{
+      width: fit-content;
+      @include _1199-block{
+        width: 120px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      @include _991-block{
+        width: fit-content;
+        display: block;
+      }
+      @media (max-width: 400px){
+        width: 120px;
+        display: flex;
+        flex-wrap: wrap;
+      }
     }
     &-arrow{
       margin: 0 5px;
+    }
+    &-toText{
+      width: fit-content;
+      @include _1199(width, 100%);
+      @include _1199(width, fit-content);
+      @media (max-width: 400px){
+        flex-wrap: wrap;
+        width: 100%;
+      }
     }
     &-price{
       color: $accented-red-color;
@@ -623,7 +661,7 @@
   }
 }
 /* ---------- END topTen (Топ-10 авиакомпаний) ---------- */
-
+/* ---------- hotSales (Горящие распродажи авиарейсов) ---------- */
 .hotSales{
   grid-area: hotSales;
   &__subtitle{
@@ -637,6 +675,8 @@
     color: #939393;
   }
 }
+/* ---------- END hotSales (Горящие распродажи авиарейсов) ---------- */
+/* ---------- frequentQuestions (Частые вопросы) ---------- */
 .frequentQuestions{
   grid-area: frequentQuestions;
   &__item{
@@ -650,10 +690,116 @@
     color: $link-blue-color;
   }
 }
+/* ---------- END frequentQuestions (Частые вопросы) ---------- */
+/* ---------- bestOffers (Частые вопросы) ---------- */
+#bestOffers{
+  position: relative;
+}
 .bestOffers{
   grid-area: bestOffers;
-  background: bisque;
+  background: rgb(208, 209, 251);
+  padding: 50px 30px 20px;
+  &__title{
+    max-width: 200px;
+    font-weight: 400;
+    line-height: 130%;
+    @include _1199(max-width, 180px);
+    @include _991(max-width, 200px);
+    @media (max-width: 400px){
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+  &__img{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 135px;
+    @include _1199-block{
+      right: 5px;
+    }
+    @media (max-width: 400px){
+      display: none;
+    }
+  }
+  &__form{
+    width: 100%;
+    margin-top: 70px;
+    @include flex(center, stretch);
+    @media (max-width: 400px){
+      flex-direction: column;
+    }
+  }
+  &__inner{
+    width: 85%;
+    position: relative;
+    top: 0;
+    left: 0;
+    @media (max-width: 400px){
+      width: 100%;
+    }
+  }
+  &__input{
+    width: 100%;
+    padding: 35px 10px 15px 20px;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: $secondary-color;
+    &-label{
+      position: absolute;
+      top: 56%;
+      left: 20px;
+      transform: translateY(-50%);
+      font-size: 1.1rem;
+      color: $text-gray-color;
+      transition: 0.2s ease-in-out;
+      &_active{
+        font-size: 0.9rem;
+        transform: translateY(-28px);
+      }
+      &_error{
+        color: $accented-red-color;
+      }
+    }
+    &:focus ~ &-label{
+      font-size: 0.9rem;
+      transform: translateY(-28px);
+    }
+    &_error{
+      border: 2px solid $accented-red-color;
+    }
+
+  }
+  &__btn{
+    display: block;
+    width: 15%;
+    @include flex();
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: $accented-red-color;
+    @media (max-width: 400px){
+      width: 100%;
+      height: 50px;
+    }
+    &:active{
+      background: $accented-lightRed-color;
+    }
+    &:hover &-icon{
+      width: 35px;
+      height: 35px;
+    }
+    &-icon{
+      width: 22px;
+      height: 22px;
+      fill: $secondary-color;
+      transition: 0.2s ease-in-out;
+    }
+  }
 }
+/* ---------- END bestOffers (Частые вопросы) ---------- */
 
 
 /* ---------- footer ---------- */

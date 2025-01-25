@@ -42,6 +42,8 @@ function showPopularDestinations(arr) {
 
     drawPopularDestinations(subLeft, ulLeft);
     drawPopularDestinations(subRight, ulRight);
+
+    drawPopularDestinations(mobileArr, ulMob);
 }
 
 function drawPopularDestinations(arrData, elWrap) {
@@ -52,10 +54,11 @@ function drawPopularDestinations(arrData, elWrap) {
         const box = document.createElement("div");
         box.classList.add("popularDest__list-content");
         const fromDist = document.createElement("span");
-        const toDist = document.createElement("span");
         const arrowRight = document.createElement("span");
         arrowRight.textContent = `→`;
         arrowRight.classList.add("popularDest__list-arrow");
+        const toDist = document.createElement("span");
+        toDist.classList.add("popularDest__list-toText");
         const priceDist = document.createElement("span");
         priceDist.classList.add("popularDest__list-price");
 
