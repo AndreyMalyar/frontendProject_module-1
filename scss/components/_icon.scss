@@ -30,4 +30,13 @@
     width: 22px;
     height: 18px;
   }
+  &__telegramIcon{
+    color: transparent;
+    fill: rgb(167,162,167);
+    width: 22px;
+    height: 18px;
+    &:hover{
+      fill: $accented-red-color;
+    }
+  }
 }

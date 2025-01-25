@@ -884,9 +884,16 @@
       padding: 8px;
       background-color: rgb(167,162,167);
       border-radius: 50%;
+      transition: 0.2s ease-in-out;
+      &:hover{
+        background-color: $accented-red-color;
+      }
       &-telegram{
         padding: 0;
-        background-color: transparent;
+        background-color: $secondary-color;
+        &:hover{
+          background-color: $secondary-color;
+        }
       }
     }
   }

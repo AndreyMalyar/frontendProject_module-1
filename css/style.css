@@ -108,6 +108,15 @@ body {
   width: 22px;
   height: 18px;
 }
+.icon__telegramIcon {
+  color: transparent;
+  fill: rgb(167, 162, 167);
+  width: 22px;
+  height: 18px;
+}
+.icon__telegramIcon:hover {
+  fill: #FF4D4D;
+}
 
 /* ---------- accordion ---------- */
 .accordion {
@@ -1170,10 +1179,17 @@ body {
   padding: 8px;
   background-color: rgb(167, 162, 167);
   border-radius: 50%;
+  transition: 0.2s ease-in-out;
+}
+.footer-link__socials-icon:hover {
+  background-color: #FF4D4D;
 }
 .footer-link__socials-icon-telegram {
   padding: 0;
-  background-color: transparent;
+  background-color: #fff;
+}
+.footer-link__socials-icon-telegram:hover {
+  background-color: #fff;
 }
 
 /* ---------- end footer ---------- */
