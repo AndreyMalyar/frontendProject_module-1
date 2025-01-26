@@ -3,7 +3,6 @@ const bestOffersInput = bestOffersForm.querySelector(".bestOffers__input");
 const bestOffersLabel = bestOffersForm.querySelector(".bestOffers__input-label");
 
 bestOffersForm.addEventListener("submit", (evt) => {
-    bestOffersInput.trim();
     if(bestOffersInput.value === ""){
         evt.preventDefault();
         bestOffersInput.classList.add("bestOffers__input_error");

@@ -119,20 +119,55 @@
               <input type="text" id="ticketTo" name="ticketTo" class="airTickets-inputBox__input" required>
               <label for="ticketTo" class="airTickets-inputBox__input-label">Куда</label>
             </fieldset>
-            <span>⇄</span>
+            <span class="airTickets-inputBox__icon">⇄</span>
           </form>
 
           <!-- выбор даты -->
           <div class="airTickets-calendarBox">
-            <div class="airTickets-calendarBox__dataTo">
-              <p class="airTickets-calendarBox__dataTo-label">Туда</p>
-              <p class="airTickets-calendarBox__dataTo-out"></p>
+            <div class="airTickets-calendarBox__header">
+              <div class="airTickets-calendarBox__dateFrom">
+                <p class="airTickets-calendarBox__dateFrom-label">Туда</p>
+                <p class="airTickets-calendarBox__dateFrom-out"></p>
+              </div>
+              <div class="airTickets-calendarBox__dateTo">
+                <p class="airTickets-calendarBox__dateTo-label">Обратно</p>
+                <p class="airTickets-calendarBox__dateTo-out"></p>
+              </div>
+              <img src="./img/svg/calendarDays.svg" class="airTickets-calendarBox__icon" alt="icon calendar">
             </div>
-            <div class="airTickets-calendarBox__dataFrom">
-              <p class="airTickets-calendarBox__dataFrom-label">Обратно</p>
-              <p class="airTickets-calendarBox__dataFrom-out"></p>
+            <!-- calendar -->
+            <div class="airTickets-calendarBox__body">
+              <div class="calendar">
+                <div class="calendar-description">
+                  <p class="calendar-description__title" id="descriptionTitle">Выберите дату туда</p>
+                  <button class="calendar-description__btn" id="descriptionBtn">В одну сторону</button>
+                </div>
+                <div class="calendar__btns">
+                  <button class="calendar__btn" type="button" id="prev">
+                    <svg class="icon__angleRight calendar__btn-prev calendar__btn-icon">
+                      <use xlink:href="#angleRight"></use>
+                    </svg>
+                  </button>
+                  <button class="calendar__btn" type="button" id="next">
+                    <svg class="icon__angleRight calendar__btn-next calendar__btn-icon">
+                      <use xlink:href="#angleRight"></use>
+                    </svg>
+                  </button>
+                </div>
+                <div class="daysBox__list">
+                  <div class="daysBox__item daysBox__item_current">
+                    <div id="currentMonth" class="daysBox__title"></div>
+                    <div id="daysOfWeek-current" class="daysBox__daysOfWeek"></div>
+                    <div id="daysCurrent" class="daysBox__calendar"></div>
+                  </div>
+                  <div class="daysBox__item daysBox__item_next" >
+                    <div id="nextMonth" class="daysBox__title"></div>
+                    <div id="daysOfWeek-next" class="daysBox__daysOfWeek"></div>
+                    <div id="daysNext" class="daysBox__calendar"></div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <img src="./img/svg/calendarDays.svg" class="airTickets-calendarBox__icon" alt="icon calendar">
           </div>
           <!-- END выбор даты -->
           <!-- выбор количества пассажиров и класса -->
@@ -184,9 +219,9 @@
 
             </div>
           </div>
-
+          <button type="button" class="header-order__btn">Найти</button>
         </div>
-        <button type="button" class="header-order__btn">Найти</button>
+        <!-- End заказ авиабилета-->
       </div>
       <!-- END выбор количества пассажиров и класса -->
       <!-- END заказ авиабилета-->
@@ -489,6 +524,7 @@
 </footer>
 
 <script src="./js/module/loader.js"></script>
+<script src="./js/module/calendar.js"></script>
 <script src="./js/module/topTen.js"></script>
 <script src="./js/module/popularDest.js"></script>
 <script src="./js/module/bestOffers.js"></script>

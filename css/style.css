@@ -249,13 +249,20 @@ body {
 }
 .header__title {
   font-size: 45px;
+  line-height: 60px;
   margin: 60px 0 40px;
+  color: #fbdada;
 }
 .header__button-list {
   display: flex;
   justify-content: left;
   align-items: center;
   gap: 10px;
+}
+@media (max-width: 768px) {
+  .header__button-list {
+    flex-direction: column;
+  }
 }
 .header__button-item {
   display: block;
@@ -292,18 +299,34 @@ body {
 }
 .header-order__wrap {
   width: 100%;
-  height: 80px;
   margin: 15px 0 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
 }
 .header-order__btn {
   width: 10%;
-  height: 100%;
+  margin-left: 10px;
   display: block;
   background-color: #FF4D4D;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: 0.2s ease-in-out;
+}
+.header-order__btn:hover {
+  font-size: 1.2rem;
+}
+.header-order__btn:active {
+  background-color: #fbdada;
+  color: #FF4D4D;
+}
+@media (max-width: 992px) {
+  .header-order__btn {
+    width: 100%;
+    min-height: 60px;
+    margin-left: 0;
+  }
 }
 .header__link {
   display: inline-block;
@@ -538,24 +561,62 @@ body {
 /* ---------- wrap order ---------- */
 .airTickets {
   width: 100%;
-  height: 100%;
-  background-color: #fff;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: stretch;
+  /* выбор даты */
+  /* class навешивается через js */
+  /* END class навешивается через js */
+  /* end выбор даты calendar */
+  /* количество пассажиров */
+}
+@media (max-width: 992px) {
+  .airTickets {
+    flex-wrap: wrap;
+  }
 }
 .airTickets-inputBox {
   width: 40%;
-  height: 100%;
-  border-right: 1px solid #000;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+@media (max-width: 992px) {
+  .airTickets-inputBox {
+    width: 100%;
+  }
+}
+@media (max-width: 576px) {
+  .airTickets-inputBox {
+    flex-wrap: wrap;
+  }
+}
+.airTickets-inputBox__icon {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  color: #FF4D4D;
+  border-radius: 50%;
+  border: 1px solid #FF4D4D;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 576px) {
+  .airTickets-inputBox__icon {
+    right: 20px;
+    transform: rotate(90deg) translate(-50%, 0);
+  }
+}
 .airTickets-inputBox__inner {
-  width: 100%;
-  height: 100%;
-  padding: 17px 0 0 20px;
+  width: 50%;
+  padding: 30px 10px 15px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -563,9 +624,18 @@ body {
   border: none;
   outline: none;
   position: relative;
+  border-right: 1px solid #000;
+}
+@media (max-width: 576px) {
+  .airTickets-inputBox__inner {
+    width: 100%;
+    border-bottom: 2px solid #ccc;
+    border-right: none;
+  }
 }
 .airTickets-inputBox__input {
   width: 100%;
+  min-height: 20px;
   display: block;
   font-size: 1.1rem;
   border: none;
@@ -573,7 +643,7 @@ body {
   background: transparent;
 }
 .airTickets-inputBox__input-label {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: #999;
   position: absolute;
@@ -588,26 +658,223 @@ body {
 }
 .airTickets-calendarBox {
   width: 35%;
+  position: relative;
+}
+@media (max-width: 992px) {
+  .airTickets-calendarBox {
+    width: 60%;
+  }
+}
+@media (max-width: 768px) {
+  .airTickets-calendarBox {
+    width: 100%;
+    border-bottom: 2px solid #ccc;
+  }
+}
+.airTickets-calendarBox__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 30px 10px 15px 20px;
+}
+.airTickets-calendarBox__body {
+  width: 550px;
+  background-color: #fff;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: -50%;
+  z-index: 20;
+  height: 0;
+  overflow: hidden;
+  transition: 0.3s ease-in-out;
+}
+@media (max-width: 992px) {
+  .airTickets-calendarBox__body {
+    left: 0;
+  }
+}
+@media (max-width: 768px) {
+  .airTickets-calendarBox__body {
+    width: 100%;
+  }
+}
+.airTickets-calendarBox__dateTo, .airTickets-calendarBox__dateFrom {
+  width: 40%;
+  border-right: 1px solid red;
+  position: relative;
+}
+.airTickets-calendarBox__dateTo-label, .airTickets-calendarBox__dateFrom-label {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #999;
+  user-select: none;
+  position: absolute;
+  top: 60%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: 0.3s ease;
+}
+.airTickets-calendarBox__dateTo-label_active, .airTickets-calendarBox__dateFrom-label_active {
+  font-size: 0.9rem;
+  transform: translate(0px, -32px);
+}
+.airTickets-calendarBox__icon {
+  width: 18px;
+}
+.airTickets .calendar {
+  padding: 20px 15px 10px;
+}
+.airTickets .calendar-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 576px) {
+  .airTickets .calendar-description {
+    flex-direction: column;
+  }
+}
+.airTickets .calendar-description__btn {
+  width: 200px;
+  height: 30px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  color: #FF4D4D;
+  background-color: #fbdada;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+  transition: 0.2s ease-in-out;
+}
+.airTickets .calendar-description__btn:hover {
+  color: #fbdada;
+  background-color: #FF4D4D;
+}
+.airTickets .calendar-description__btn:active {
+  box-shadow: none;
+}
+.airTickets .calendar__btns {
+  width: calc(100% - 30px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  left: 15px;
+  top: 70px;
+  pointer-events: none;
+}
+.airTickets .calendar__btn {
+  pointer-events: all;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3), -3px -3px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.2s ease-in-out;
 }
-.airTickets-calendarBox__icon {
-  width: 30px;
+.airTickets .calendar__btn-prev {
+  transform: rotate(180deg);
+}
+.airTickets .calendar__btn:hover {
+  background-color: #ccc;
+}
+.airTickets .calendar__btn:active {
+  box-shadow: none;
+}
+.airTickets .daysBox__list {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+@media (max-width: 576px) {
+  .airTickets .daysBox__list {
+    justify-content: center;
+  }
+}
+.airTickets .daysBox__item {
+  width: 48%;
+  margin-top: 20px;
+}
+@media (max-width: 576px) {
+  .airTickets .daysBox__item {
+    width: 100%;
+  }
+}
+@media (max-width: 576px) {
+  .airTickets .daysBox__item_next {
+    display: none;
+  }
+}
+.airTickets .daysBox__title {
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.airTickets .daysBox__daysOfWeek {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.airTickets .daysBox__calendar {
+  display: flex;
+  flex-wrap: wrap;
+}
+.airTickets .calendar__day {
+  width: 14.2857142857%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.airTickets .calendar__day_passive {
+  color: #ccc;
+  user-select: none;
+  font-weight: 400;
+}
+.airTickets .calendar__day[data-day=dayNow] {
+  background-color: #ccc;
+  border-radius: 8px;
+}
+.airTickets .calendar__day_between {
+  background-color: #fbdada;
+}
+.airTickets .calendar__day_currentDay {
+  background-color: #FF4D4D;
 }
 .airTickets-passengerBox {
   width: 25%;
-  height: 100%;
-  padding: 17px 0 0 20px;
-  border-left: 1px solid #000;
+  padding: 30px 10px 15px 20px;
+  border-left: 1px solid #ccc;
+  background-color: #fff;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
   position: relative;
 }
+@media (max-width: 992px) {
+  .airTickets-passengerBox {
+    width: 40%;
+  }
+}
+@media (max-width: 768px) {
+  .airTickets-passengerBox {
+    width: 100%;
+    border-left: none;
+  }
+}
 .airTickets-passengerBox__label {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: #999;
   user-select: none;
@@ -628,12 +895,12 @@ body {
 .airTickets-passengerBox__out {
   font-size: 1.1rem;
   line-height: 1.1rem;
+  min-height: 20px;
 }
 .airTickets-passengerBox__menu {
   width: 130%;
   background-color: #fff;
   border-radius: 16px;
-  border: 1px solid #6E36F7;
   position: absolute;
   top: calc(100% + 5px);
   right: 0;
@@ -642,6 +909,11 @@ body {
   height: 0;
   overflow: hidden;
   transition: 0.3s ease-in-out;
+}
+@media (max-width: 992px) {
+  .airTickets-passengerBox__menu {
+    width: 100%;
+  }
 }
 .airTickets-passengerBox__menu-container {
   padding: 15px 20px;
@@ -722,8 +994,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 15px;
-  border-radius: 30%;
+  padding: 6px 12px;
+  border-radius: 20px;
   font-size: 1.05rem;
   background-color: #fff;
   border: none;
@@ -907,7 +1179,7 @@ body {
 }
 .busTickets__img {
   position: absolute;
-  right: 20px;
+  right: 0;
   bottom: 0;
 }
 @media (max-width: 576px) {

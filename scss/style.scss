@@ -32,26 +32,56 @@
 /* ---------- wrap order ---------- */
 .airTickets{
   width: 100%;
-  height: 100%;
-  background-color: $secondary-color;
-  @include flex(center, flex-end);
+  @include flex(center, stretch);
+  @include _991-block{
+    flex-wrap: wrap;
+  }
   &-inputBox{
     width: 40%;
-    height: 100%;
-    border-right: 1px solid #000;
+    background-color: $secondary-color;
     @include flex();
-    &__inner{
+    position: relative;
+    @include _991-block{
       width: 100%;
-      height: 100%;
-      padding: 17px 0 0 20px;
+    }
+    @include _575-block{
+      flex-wrap: wrap;
+    }
+    &__icon{
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
+      color: $accented-red-color;
+      border-radius: 50%;
+      border: 1px solid $accented-red-color;
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+      @include flex();
+      @include _575-block{
+        right: 20px;
+        transform: rotate(90deg) translate(-50%, 0);
+      }
+    }
+    &__inner{
+      width: 50%;
+      padding: 30px 10px 15px 20px;
       @include flex();
       flex-direction: column;
       border: none;
       outline: none;
       position: relative;
+      border-right: 1px solid #000;
+      @include _575-block{
+        width: 100%;
+        border-bottom: 2px solid #ccc;
+        border-right: none;
+      }
     }
     &__input{
       width: 100%;
+      min-height: 20px;
       display: block;
       font-size: 1.1rem;
       border: none;
@@ -59,7 +89,7 @@
       background: transparent;
 
       &-label{
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         font-weight: 600;
         color: $text-gray-color;
         position: absolute;
@@ -75,23 +105,209 @@
       }
     }
   }
+  /* выбор даты */
   &-calendarBox{
     width: 35%;
-    @include flex();
+    position: relative;
+    @include _991-block{
+      width: 60%;
+    }
+    @include _767-block{
+      width: 100%;
+      border-bottom: 2px solid #ccc;
+    }
+    &__header{
+      width: 100%;
+      @include flex(space-between);
+      background-color: $secondary-color;
+      padding: 30px 10px 15px 20px;
+    }
+    &__body{
+      width: 550px;
+      background-color: $secondary-color;
+      position: absolute;
+      top: calc(100% + 5px);
+      left: -50%;
+      z-index: 20;
+      height: 0;
+      overflow: hidden;
+      transition: 0.3s ease-in-out;
+      @include _991-block{
+        left: 0;
+      }
+      @include _767-block{
+        width: 100%;
+      }
+    }
+    &__dateTo,
+    &__dateFrom{
+      width: 40%;
+      border-right: 1px solid red;
+      position: relative;
+      &-label{
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: $text-gray-color;
+        user-select: none;
+        position: absolute;
+        top: 60%;
+        left: 0;
+        transform: translateY(-50%);
+        transition: 0.3s ease;
+        &_active{
+          font-size: 0.9rem;
+          transform: translate(0px, -32px);
+        }
+      }
+    }
     &__icon{
-      width: 30px;
+      width: 18px;
     }
   }
+
+  .calendar{
+    padding: 20px 15px 10px;
+    &-description{
+      @include flex(space-between);
+      @include _575-block{
+        flex-direction: column;
+      }
+      &__btn{
+        width: 200px;
+        height: 30px;
+        font-weight: 600;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        color: $accented-red-color;
+        background-color: $accented-lightRed-color;
+        box-shadow: 3px 3px 8px rgba(0, 0, 0, .3);
+        transition: 0.2s ease-in-out;
+        &:hover{
+          color: $accented-lightRed-color;
+          background-color:  $accented-red-color;
+        }
+        &:active{
+          box-shadow: none;
+        }
+      }
+    }
+    &__btns{
+      width: calc(100% - 30px);
+      @include flex(space-between);
+      position: absolute;
+      left: 15px;
+      top: 70px;
+      pointer-events: none;
+    }
+    &__btn{
+      pointer-events: all;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background-color: $secondary-color;
+      border: none;
+      outline: none;
+      box-shadow: 3px 3px 8px rgba(0, 0, 0, .3), -3px -3px 8px rgba(0, 0, 0, .1);
+      @include flex();
+      transition: 0.2s ease-in-out;
+      &-prev{
+        transform: rotate(180deg);
+      }
+      &:hover{
+        background-color: #ccc;
+      }
+      &:active{
+        box-shadow: none;
+      }
+    }
+  }
+
+  .daysBox{
+    &__list{
+      width: 100%;
+      @include flex(space-between, flex-start);
+      @include _575-block{
+        justify-content: center;
+      }
+    }
+    &__item{
+      width: 48%;
+      margin-top: 20px;
+      @include _575-block{
+        width: 100%;
+      }
+      &_next{
+        @include _575-block{
+          display: none;
+        }
+      }
+    }
+    &__title{
+      text-align: center;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    &__daysOfWeek{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &__calendar{
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  /* class навешивается через js */
+  .calendar{
+    &__day{
+      width: calc(100% / 7);
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      &_passive{
+        color: #ccc;
+        user-select: none;
+        font-weight: 400;
+      }
+      &[data-day="dayNow"]{
+        background-color: #ccc;
+        border-radius: 8px;
+      }
+      &_between{
+        background-color: $accented-lightRed-color;
+      }
+      &_currentDay{
+        background-color: $accented-red-color;
+      }
+    }
+  }
+  /* END class навешивается через js */
+
+  /* end выбор даты calendar */
+
+
+  /* количество пассажиров */
   &-passengerBox{
     width: 25%;
-    height: 100%;
-    padding: 17px 0 0 20px;
-    border-left: 1px solid #000;
+    padding: 30px 10px 15px 20px;
+    border-left: 1px solid #ccc;
+    background-color: $secondary-color;
     @include flex(flex-start, center);
     cursor: pointer;
     position: relative;
+    @include _991-block{
+      width: 40%;
+    }
+    @include _767-block{
+      width: 100%;
+      border-left: none;
+    }
     &__label{
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
       color: $text-gray-color;
       user-select: none;
@@ -112,12 +328,15 @@
     &__out{
       font-size: 1.1rem;
       line-height: 1.1rem;
+      min-height: 20px;
     }
     &__menu{
       width: 130%;
+      @include _991-block{
+        width: 100%;
+      }
       background-color: $secondary-color;
       border-radius: 16px;
-      border: 1px solid $primary-color;
       position: absolute;
       top: calc(100% + 5px);
       right: 0;
@@ -205,14 +424,15 @@
     }
     &__btn{
       @include flex();
-      padding: 10px 15px;
-      border-radius: 30%;
+      padding: 6px 12px;
+      border-radius: 20px;
       font-size: 1.05rem;
       background-color: $secondary-color;
       border: none;
       outline: none;
       box-shadow: -3px -3px 8px rgba(0,0,0,0.1), 3px 3px 8px rgba(0,0,0,0.25);
       transition: .1s linear;
+
       &_active{
         box-shadow: none;
         background-color: $accented-red-color;
@@ -373,7 +593,7 @@
   }
   &__img{
     position: absolute;
-    right: 20px;
+    right: 0;
     bottom: 0;
     @include _575(display, none);
   }
