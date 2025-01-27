@@ -110,17 +110,23 @@
       <div class="header-order__wrap">
         <div class="airTickets">
 
-          <form class="airTickets-inputBox">
-            <fieldset class="airTickets-inputBox__inner">
-              <input type="text" id="ticketFrom" name="ticketFrom" class="airTickets-inputBox__input" required>
-              <label for="ticketFrom" class="airTickets-inputBox__input-label">Откуда</label>
-            </fieldset>
-            <fieldset class="airTickets-inputBox__inner">
-              <input type="text" id="ticketTo" name="ticketTo" class="airTickets-inputBox__input" required>
-              <label for="ticketTo" class="airTickets-inputBox__input-label">Куда</label>
-            </fieldset>
-            <span class="airTickets-inputBox__icon">⇄</span>
-          </form>
+          <div class="airTickets-wrap">
+            <form class="airTickets-inputBox">
+              <fieldset class="airTickets-inputBox__inner">
+                <input type="text" id="ticketFrom" name="ticketFrom" class="airTickets-inputBox__input" required>
+                <label for="ticketFrom" class="airTickets-inputBox__input-label">Откуда</label>
+              </fieldset>
+              <fieldset class="airTickets-inputBox__inner">
+                <input type="text" id="ticketTo" name="ticketTo" class="airTickets-inputBox__input" required>
+                <label for="ticketTo" class="airTickets-inputBox__input-label">Куда</label>
+              </fieldset>
+              <span class="airTickets-inputBox__icon">⇄</span>
+            </form>
+            <div class="airTickets-inputOut" id="menuFrom" >
+
+            </div>
+          </div>
+
 
           <!-- выбор даты -->
           <div class="airTickets-calendarBox">
