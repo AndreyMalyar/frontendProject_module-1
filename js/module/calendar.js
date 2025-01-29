@@ -15,7 +15,6 @@ const dayNow = date.getDate();
 
 let currYear = date.getFullYear();
 let currMonth = date.getMonth();
-let currDay = date.getDate();
 
 const allDays = [];
 
@@ -58,8 +57,10 @@ function showMonth(year, month, id, calendarDraw){
         // основной календарь
         let day = document.createElement("div");
         day.classList.add("calendar__day");
-        day.setAttribute("data-name", "dayActive");
+        day.dataset.name = "dayActive";
         day.textContent = i;
+        //метка даты
+        day.dataset.date = `${year}-${month + 1}-${i}`;
         // метка для дня сегодня
         if(i === dayNow && month === monthNow && year === yearNow){
             day.dataset.day = "dayNow";
@@ -139,13 +140,9 @@ const clickedDays = [];
 let betweenDays = [];
 
 // первый клик
-let selectYearFrom = null;
-let selectMontFrom = null;
-let selectDayFrom = null;
+let selectDateFrom = null;
 // второй клик
-let selectYearTo = null;
-let selectMontTo = null;
-let selectDayTo = null;
+let selectDateTo = null;
 
 dayBoxs.forEach(item => {
     item.addEventListener("click", (evt)=>{
@@ -167,18 +164,16 @@ dayBoxs.forEach(item => {
 
             let descriptionTitle = getBayId("descriptionTitle");
             if(counter === 0){ // первый клик
-                closeCalendarBtn.textContent = "В одну сторону"
+                closeCalendarBtn.textContent = "В одну сторону";
                 // warning
-                if(checkDateTo(evt)) {
+                selectDateFrom = evt.target.dataset.date;
+
+                if(!checkDate(selectDateFrom)) {
                     clickedDays.splice(0);
                     return;
                 }
                 // warning end
-                selectYearTo = null;
-                selectMontTo = null;
 
-
-                selectDayTo = evt.target.innerText;
                 evt.target.classList.add("calendar__day_currentDay");
                 descriptionTitle.textContent = "Выберите дату обратно";
 
@@ -189,13 +184,13 @@ dayBoxs.forEach(item => {
                 let first = allDays.indexOf(clickedDays[0]);
                 let last = allDays.indexOf(clickedDays[1]);
                 betweenDays = allDays.slice(first+1, last);
+
                 betweenDays.forEach(item => {
                     item.classList.add("calendar__day_between");
                 })
 
-                selectYearTo = clickedDays[1].closest(".daysBox__item").querySelector(".daysBox__title").dataset.year;
-                selectMontTo = clickedDays[1].closest(".daysBox__item").querySelector(".daysBox__title").dataset.month;
-                selectDayTo = evt.target.innerText;
+                selectDateTo = evt.target.dataset.date;
+
                 evt.target.classList.add("calendar__day_currentDay");
                 descriptionTitle.textContent = "Выберите дату туда";
 
@@ -206,43 +201,42 @@ dayBoxs.forEach(item => {
     })
 })
 
-function checkDateTo(evt) {
-    selectYearFrom = clickedDays[0].closest(".daysBox__item").querySelector(".daysBox__title").dataset.year;
-    selectMontFrom = clickedDays[0].closest(".daysBox__item").querySelector(".daysBox__title").dataset.month;
-    selectDayFrom = evt.target.innerText;
-    const year = parseInt(selectYearFrom);
-    const month = parseInt(selectMontFrom);
-    const day = parseInt(selectDayFrom);
+function checkDate(selectDateFrom) {
+    const dateTimestamp = new Date(selectDateFrom).getTime();
+    const dateNow = new Date().getTime();
 
-    const now = Date.now();
-    const clickDateTo = new Date(year, month, day, 0, 0, 0, 0);
-
-    if(now > clickDateTo.getTime()){ return true; }
-
-    return false;
+    return dateNow < dateTimestamp;
 }
 
 function outData(counter){
     const outDateLabelFrom = document.querySelector(".airTickets-calendarBox__dateFrom-label")
     const outDateLabelTo = document.querySelector(".airTickets-calendarBox__dateTo-label")
-    let outDateFrom = document.querySelector(".airTickets-calendarBox__dateFrom-out");
-    let outDateTo = document.querySelector(".airTickets-calendarBox__dateTo-out");
+    const outDateFrom = document.querySelector(".airTickets-calendarBox__dateFrom-out");
+    const outDateTo = document.querySelector(".airTickets-calendarBox__dateTo-out");
+
     if(counter === 0){
-        outDateFrom.textContent = `${selectDayFrom}, ${+selectMontFrom + 1}, ${selectYearFrom}`;
+        const selectDateFromArr = selectDateFrom.split("-");
+        let selectYearFrom = selectDateFromArr[0];
+        let selectMontFrom = selectDateFromArr[1];
+        let selectDayFrom = selectDateFromArr[2];
+        outDateFrom.textContent = `${selectDayFrom}, ${selectMontFrom}, ${selectYearFrom}`;
         outDateTo.textContent = "";
         outDateLabelFrom.classList.add("airTickets-calendarBox__dateFrom-label_active");
     } else if (counter === 1){
-        outDateTo.textContent = `${selectDayTo}, ${+selectMontTo + 1}, ${selectYearTo}`;
+        const selectDateToArr = selectDateTo.split("-")
+        let selectYearTo = selectDateToArr[0];
+        let selectMontTo = selectDateToArr[1];
+        let selectDayTo = selectDateToArr[2];
+        outDateTo.textContent = `${selectDayTo}, ${+selectMontTo}, ${selectYearTo}`;
         outDateLabelTo.classList.add("airTickets-calendarBox__dateTo-label_active");
     }
 }
 
 
 let showCalendar = true;
-
-document.querySelector(".airTickets-calendarBox__header").addEventListener("click", (e) => {
+const calendarBody = document.querySelector(".airTickets-calendarBox__body")
+document.querySelector(".airTickets-calendarBox__header").addEventListener("click", () => {
     if(showCalendar){
-        calendarBody = document.querySelector(".airTickets-calendarBox__body")
         calendarBody.style.height = calendarBody.scrollHeight + "px";
     } else {
         calendarBody.style.height = "";
