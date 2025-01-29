@@ -3,8 +3,8 @@
   padding: 30px 0 100px;
 
   &__title{
-    font-size: 45px;
-    line-height: 60px;
+    font-size: calc(var(--index) * 1.8);
+    line-height: calc(var(--index) * 2);
     margin: 60px 0 40px;
     color: $accented-lightRed-color;
   }
