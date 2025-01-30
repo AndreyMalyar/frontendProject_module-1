@@ -216,18 +216,14 @@ function outData(counter){
 
     if(counter === 0){
         const selectDateFromArr = selectDateFrom.split("-");
-        let selectYearFrom = selectDateFromArr[0];
-        let selectMontFrom = selectDateFromArr[1];
-        let selectDayFrom = selectDateFromArr[2];
-        outDateFrom.textContent = `${selectDayFrom}, ${selectMontFrom}, ${selectYearFrom}`;
+        const [year, month, day] = selectDateFromArr;
+        outDateFrom.textContent = `${day}, ${month}, ${year}`;
         outDateTo.textContent = "";
         outDateLabelFrom.classList.add("airTickets-calendarBox__dateFrom-label_active");
     } else if (counter === 1){
-        const selectDateToArr = selectDateTo.split("-")
-        let selectYearTo = selectDateToArr[0];
-        let selectMontTo = selectDateToArr[1];
-        let selectDayTo = selectDateToArr[2];
-        outDateTo.textContent = `${selectDayTo}, ${+selectMontTo}, ${selectYearTo}`;
+        const selectDateToArr = selectDateTo.split("-");
+        const [year, month, day] = selectDateToArr;
+        outDateTo.textContent = `${day}, ${month}, ${year}`;
         outDateLabelTo.classList.add("airTickets-calendarBox__dateTo-label_active");
     }
 }
